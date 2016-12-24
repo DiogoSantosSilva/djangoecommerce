@@ -1,0 +1,158 @@
+{% extends "base.html"%}
+
+<style>
+    {% block style %}
+        .container-alert-flash{
+            position: absolute;
+            top: 10px;
+            z-index: 10000;
+            width: 100%;
+            right: 0%;
+            margin: 0px;
+            display:None;
+}
+    {% endblock style %}
+</style>
+
+<script>
+{% block jquery %}
+
+  function setPrice(){
+    var price = $(".variation_select option:selected").attr("data-price")
+
+    var sale_price = $(".variation_select option:selected").attr("data-sale-price")
+    if (sale_price != "" && sale_price != "None" && sale_price != null)
+    {
+      $("#price").html("<h3>" + sale_price + " <small class='og_price'> " +  price  + " </small></h3>");
+    }else{
+      $("#price").html(price);
+    }
+
+  }
+  setPrice()
+
+
+
+  $(".variation_select").change(function(){
+    setPrice()
+    // var img = $(".variation_select option:selected").attr("data-img")
+    // $("img").attr("src", img);
+
+  });
+
+  $("#submit-btn").click(function(event){
+    event.preventDefault();
+    var formData = $("#add-form").serialize();
+    console.log(formData);
+    $.ajax({
+        type:"GET",
+        url:"{% url 'cart' %}",
+        data:formData,
+        success:function (data) {
+           $("#jquery-message").text("Added " + data.item_added + " deleted " + data.deleted)
+            showMessageFlash("Product added")
+
+        },
+        error: function (response, error) {
+            console.log(response)
+            console.log(error)
+        }
+    })
+
+  });
+
+
+{% endblock jquery %}
+</script>
+
+{% block content%}
+
+<div class="row">
+  <div class="col-sm-8">
+    <h2>{{object.title}}</h2>
+  <hr />
+
+<!-- product image-->
+    {% if object.get_image_url %}
+      <div class="col-sm-6">
+          <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
+      </div>
+    {% endif %}
+
+    <br />
+    <div class="lead">
+      {{ product.description }}
+    </div>
+  </div>
+<!-- product image -->
+
+<!-- product sidebar -->
+  <form id='add-form' method="GET" action="{% url 'cart' %}">
+
+  <div class="col-sm-4">
+        {% if product.variation_set.count > 1 %}
+            <h3 id="price">{{ product.variation_set.first.price }}</h3>
+              <select name='item' class="form-control variation_select">
+                {% for vari_prod in product.variation_set.all %}
+                  <option  data-sale-price="{{vari_prod.sale_price}}" data-price="{{vari_prod.price}}" value="{{vari_prod.id}}">
+                    {{vari_prod}}
+                  </option>
+                {% endfor %}
+              </select>
+
+
+    {% else %}
+          <input  type="hidden" name="item" value="{{ product.variation_set.first.id }}"/>
+          <h3 id="price">
+              {% if product.variation_set.first.sale_price %}
+                {{ product.variation_set.first.sale_price }}
+                <small class="og_price">{{ product.variation_set.first.price }}</small>
+              {% else %}
+                {{ product.variation_set.first.price }}
+              {% endif %}
+          </h3>
+
+    {% endif%}
+      <br>
+      <input  class="form-control input-sm" type="number" name="qty" value="1"/>
+      <br>
+
+      <input id='submit-btn' type="submit" class="btn btn-sm btn-success" value="Add to cart"/>
+      <br />
+
+      </form>
+
+    <hr />
+
+
+    <!-- #share on facebook or linkedin -->
+    <p>Share</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_url}}">
+      <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+    </a>
+
+    <hr />
+
+  <!-- related product by category -->
+    <h3> Related Products</h3>
+    <div class="row" >
+      {% for product in related %}
+        <div class="col-sm-6 text-center">
+          {% if product.get_image_url %}
+            <h5><a href="{{ product.get_absolute_url }}" >{{product.title}}</a><h5>
+            <a href="{{ product.get_absolute_url }}" >
+               <img id="img" class="img-responsive" src="{{ product.get_image_url }}" />
+            </a>
+          {% endif %}
+        </div>
+    {% cycle '' '</div><div class="row">'%}
+      {% endfor %}
+
+    </div>
+  </div>
+<!-- end product sidebar -->
+
+
+
+</div>
+{% endblock%}

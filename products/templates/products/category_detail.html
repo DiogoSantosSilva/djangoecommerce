@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>{{ object }}</h3>
+
+  <div class="row">
+    <div class="container-fluid">
+        {% for object in products %}
+          <div class="col-xs-4 text-center">
+            {% if object.get_image_url %}
+              <h5><a href="{{ object_absolute_url }}" >{{ object.title}}</a><h5>
+              <a href="{{ object.get_absolute_url }}" >
+                 <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
+              </a>
+            {% endif %}
+          </div>
+          {% cycle '' '' '</div><div class="row">'%}
+        {% endfor%}
+    </div>
+  </div>
+
+{% endblock content %}

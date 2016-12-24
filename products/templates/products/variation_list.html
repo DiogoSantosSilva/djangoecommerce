@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <table class="table table-striped">
+        {% for object in object_list %}
+            <thead>
+              <tr>
+                <th>
+                    <a href="{{ object.get_absolute_url }}">{{object.title}}</a>
+                </th>
+              </tr>
+            </thead>
+          {% endfor%}
+          </table>
+
+          <form method="POST" action="">
+            {% csrf_token %}
+            {{ formset.management_form}}
+
+            {% for form in formset %}
+                {{ form.instance.product.title }}
+                {{ form.instance.title }}
+                {{ form.as_p}}
+                <hr />
+            {% endfor%}
+            <input type="submit" value="Update" class="btn" />
+          </form>
+{% endblock content %}

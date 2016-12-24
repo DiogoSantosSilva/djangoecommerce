@@ -1,0 +1,6 @@
+ecommerce2/settings/db_password.py
+*.pyc
+__pycache__
+myvenv
+db.sqlite3
+.DS_Store

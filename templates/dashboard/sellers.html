@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title%} Minha Conta {% endblock title %}
+
+{% block content %}
+  <ol class="breadcrumb">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'home' %}">My Account</a></li>
+  </ol>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">My Account</a>
+        <a href="#" class="list-group-item">Change Data</a>
+        <a href="#" class="list-group-item">Change Password</a>
+      </div>
+        <br>
+        <div class="list-group">
+        <a href="#" class="list-group-item active">Products</a>
+        <a href="#" class="list-group-item">Add New Product</a>
+        <a href="#" class="list-group-item">Alter Product</a>
+      </div>
+    </div>
+
+
+    <div class="col-md-8">
+      {% block accounts_content  %}
+
+      {% endblock accounts_content %}
+    </div>
+  </div>
+{% endblock content %}
