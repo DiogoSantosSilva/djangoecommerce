@@ -20,6 +20,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 from django.conf import settings
+import dj_database_url
 
 if not settings.DEBUG:
 	import os
@@ -160,6 +161,8 @@ if not settings.DEBUG:
 	MEDIA_ROOT = '/home/cfedeploy/webapps/mvpland_media/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
+	db_from_env = dj_database_url.config(conn_max_age=500)
+	DATABASES['default'].update(db_from_env)
 
 	#Crispy FORM TAGs SETTINGS
 	CRISPY_TEMPLATE_PACK = 'bootstrap3'
