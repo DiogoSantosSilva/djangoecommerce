@@ -28,9 +28,11 @@
       <file leaf-file-name="local.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="277">
+              <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+              <folding>
+                <element signature="e#381#390#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -420,7 +422,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1366" height="706" extended-state="7" />
+    <frame x="0" y="28" width="1366" height="706" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25988287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -864,9 +866,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="277">
+          <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+          <folding>
+            <element signature="e#381#390#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
