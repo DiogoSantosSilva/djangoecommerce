@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46f1e048-b783-47c5-9960-fe5891d08827" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ecommerce2/old_settings.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/carts/templates/carts/views.html" afterPath="$PROJECT_DIR$/templates/carts/views.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carts/models.py" afterPath="$PROJECT_DIR$/carts/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carts/views.py" afterPath="$PROJECT_DIR$/carts/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/settings/local.py" afterPath="$PROJECT_DIR$/ecommerce2/settings/local.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/urls.py" afterPath="$PROJECT_DIR$/ecommerce2/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/models.py" afterPath="$PROJECT_DIR$/products/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/views.py" afterPath="$PROJECT_DIR$/products/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sellers/models.py" afterPath="$PROJECT_DIR$/sellers/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sellers/urls.py" afterPath="$PROJECT_DIR$/sellers/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sellers/views.py" afterPath="$PROJECT_DIR$/sellers/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboard/sellers.html" afterPath="$PROJECT_DIR$/templates/dashboard/sellers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/javascript.html" afterPath="$PROJECT_DIR$/templates/javascript.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/navbar.html" afterPath="$PROJECT_DIR$/templates/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/product_detail.html" afterPath="$PROJECT_DIR$/templates/products/product_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/products.html" afterPath="$PROJECT_DIR$/templates/products/products.html" />
-    </list>
+    <list default="true" id="46f1e048-b783-47c5-9960-fe5891d08827" name="Default" comment="" />
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -81,8 +62,8 @@
       <file leaf-file-name="local.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="162" column="36" lean-forward="false" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+            <state relative-caret-position="448">
+              <caret line="142" column="54" lean-forward="true" selection-start-line="142" selection-start-column="54" selection-end-line="142" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -603,9 +584,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1366" height="706" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25988287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25988287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282313" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1058,8 +1039,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="162" column="36" lean-forward="false" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+        <state relative-caret-position="448">
+          <caret line="142" column="54" lean-forward="true" selection-start-line="142" selection-start-column="54" selection-end-line="142" selection-end-column="68" />
           <folding />
         </state>
       </provider>
