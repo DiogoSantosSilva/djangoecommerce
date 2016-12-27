@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView, UpdateView
 
 from .mixins import LoginRequiredMixin, StaffRequiredMixin
 
@@ -95,3 +96,9 @@ class ProductDetailView(DetailView):
         instance = self.get_object()
         context["related"] =  sorted(Product.objects.get_related(instance)[:5], key=lambda x: x.title)
         return context
+
+class ProductDeleteView(DeleteView):
+    pass
+
+class ProductEditView(UpdateView):
+    pass

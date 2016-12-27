@@ -49,8 +49,8 @@
         url:"{% url 'cart' %}",
         data:formData,
         success:function (data) {
-           $("#jquery-message").text("Added " + data.item_added + " deleted " + data.deleted)
-            showMessageFlash("Product added")
+            showMessageFlash(data.flash_message)
+            updateCartItemCount()
 
         },
         error: function (response, error) {
@@ -68,22 +68,26 @@
 {% block content%}
 
 <div class="row">
-  <div class="col-sm-8">
-    <h2>{{object.title}}</h2>
-  <hr />
 
 <!-- product image-->
-    {% if object.get_image_url %}
-      <div class="col-sm-6">
-          <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
-      </div>
-    {% endif %}
+  <div class="col-sm-8 ">
 
-    <br />
-    <div class="lead">
-      {{ product.description }}
+    <div class="row">
+    <h1 class="breadcrumb text-center">{{object.title}}</h1>
+    <br>
+    <div class="col-sm-6 col-sm-offset-3" >
+      {% if object.get_image_url %}
+          <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
+      {% endif %}
     </div>
+    </div>
+    <br>
+    <div class="breadcrumb">About the product</div>
+    <p>{{object.description}}</p>
   </div>
+
+
+
 <!-- product image -->
 
 <!-- product sidebar -->
@@ -130,11 +134,9 @@
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_url}}">
       <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
     </a>
-
-    <hr />
-
+    <br><br>
   <!-- related product by category -->
-    <h3> Related Products</h3>
+    <div class="breadcrumb">Related Products</div>
     <div class="row" >
       {% for product in related %}
         <div class="col-sm-6 text-center">
@@ -152,7 +154,4 @@
   </div>
 <!-- end product sidebar -->
 
-
-
-</div>
 {% endblock%}

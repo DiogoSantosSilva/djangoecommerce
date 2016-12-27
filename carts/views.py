@@ -9,6 +9,21 @@ from products.models import Variation
 
 
 # Create your views here.
+class ItemCountView(View):
+
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            cart_id = self.request.session.get("cart_id")
+
+            if cart_id == None:
+                count = 0
+            else:
+                cart = Cart.objects.get(id=cart_id)
+                count = cart.items.count()
+                request.session["cart_item_count"] = count
+            return JsonResponse({"count":count})
+        else:
+            raise Http404
 
 
 class CartView(SingleObjectMixin, View):
@@ -45,10 +60,14 @@ class CartView(SingleObjectMixin, View):
 
             cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item_instance)
             if created:
+                flash_message = "Successfully added"
                 item_added = True
             if delete_item:
                 cart_item.delete()
+                flash_message = "Successfully removed"
             else:
+                if not created:
+                    flash_message = "Successfully updated"
                 cart_item.quantity = qty
                 cart_item.save()
             if not request.is_ajax():
@@ -63,11 +82,27 @@ class CartView(SingleObjectMixin, View):
                 subtotal = cart_item.cart.subtotal
             except:
                 subtotal = None
+            try:
+                cart_total = cart_item.cart.total
+            except:
+                cart_total = None
+            try:
+                tax_total = cart_item.cart.tax_total
+            except:
+                tax_total = None
+            try:
+                total_items = cart_item.cart.items.count()
+            except:
+                total_items = 0
             data = {
                 "deleted": delete_item,
                 "item_added": item_added,
                 "line_total": total,
-                "subtotal": subtotal
+                "subtotal": subtotal,
+                "tax_total":tax_total,
+                "cart_total":cart_total,
+                "flash_message":flash_message,
+                "total_items":total_items,
             }
             return JsonResponse(data)
 

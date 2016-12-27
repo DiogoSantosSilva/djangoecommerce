@@ -22,7 +22,7 @@
 {% block jquery %}
 
 
-$(".item_qty").change(function() {
+$("#item_qty").change(function() {
     //$(this).next(".btn_update").fadeIn();
     var item = $(this).prev("input[type='hidden']").val();
     var qty = $(this).val()
@@ -39,13 +39,31 @@ $(".item_qty").change(function() {
         success:function (data) {
            $("#jquery-message").text("Added " + data.item_added + " deleted " + data.deleted)
             if (data.deleted){
-               $("#item-"+item).fadeOut();
+                $("#item-"+item).fadeOut();
+                $("#tax").text(data.tax_total);
+                $("#subtotal").text(data.subtotal);
+                $("#carttotal").text(data.cart_total);
             }else{
                 $("#item-line-total-"+ item).text(data.line_total);
+                $("#tax").text(data.tax_total);
                 $("#subtotal").text(data.subtotal);
+                $("#carttotal").text(data.cart_total);
             }
-            showMessageFlash("Cart Update")
-
+            if (data.total_items == 0){
+                $(".table").fadeOut();
+                var template = "{% include 'carts/empty_cart.html' %}";
+                $(".main-content").html(template);
+            }
+            var message = ""
+            if (data.added){
+            	message = "New item added"
+			}else if (data.deleted){
+				message = "Item removed"
+			}else {
+			    message = "Item updated"
+            }
+            showMessageFlash(message)
+            updateCartItemCount()
         },
         error: function (response, error) {
              //console.log(response)
@@ -56,13 +74,21 @@ $(".item_qty").change(function() {
 
 });
 
-
 {% endblock jquery %}
 </script>
 
 {% block content %}
         <!--<div class=" col-sm-offset-1 col-sm-10 text-center">-->
-        <table class="table table-striped table-hover ">
+
+<div class="row main-content">
+     <div class="row">
+{% if object.cartitem_set.count < 1 %}
+
+    {% include "carts/empty_cart.html" %}
+{% else %}
+
+    <div class="col-sm-8 col-sm-offset-2">
+        <table class="table table-striped table-bordered">
              <thead>
             <tr class="success ">
               <th style="text-align: left ">Item</th>
@@ -79,7 +105,7 @@ $(".item_qty").change(function() {
                   <td >
                       <form  action="." method="get">
                           <input type="hidden" name="item" value="{{item.item.id}}"/>
-                          <input class="item_qty " type="number"  name="qty" value="{{item.quantity}}"/>
+                          <input id="item_qty" class="form-control " type="number"  name="qty" value="{{item.quantity}}"/>
                           <input value="Update" type="submit" class=" btn_update btn btn-link" style="display:None;"/>
                       </form>
                       <td id='item-line-total-{{item.item.id}}'>{{item.line_item_total}}</td>
@@ -87,12 +113,23 @@ $(".item_qty").change(function() {
                   </td>
             </tr>
           {% endfor%}
-
-            <tr>
-                <td  colspan="4" class="text-right">
-                    Subtotal:<span id="subtotal">{{object.subtotal}}</span>
-                </td>
-            </tr>
         </table>
+         </div>
         <!--</div>-->
+
+        <div class="col-sm-4 col-sm-offset-2">
+            <label>Post code</label>
+            <input class="form-control" type="tel" value="Search">
+        </div>
+        <div class="col-sm-4">
+            <ul class="list-group">
+              <li class="list-group-item">Tax total<span id="tax" class="badge">{{object.tax_total}}</span></li>
+              <li class="list-group-item">Subtotal <span id="subtotal" class="badge">{{object.subtotal}}</span></li>
+              <li  class="list-group-item">Total<span id="carttotal" class="badge">{{object.total}}</span></li>
+            </ul>
+        </div>
+        </div>
+    {% endif %}
+
+    </div>
 {% endblock content %}
