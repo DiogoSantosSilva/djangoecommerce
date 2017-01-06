@@ -161,11 +161,11 @@ DATABASES['default'].update(db_from_env)
 
 	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-	STATIC_ROOT = os.path.join(BASE_DIR, "static-root-files"),
+	STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = '/home/Desktop/ecommerce-2/static_in_env/media_root/'
+	MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 	db_from_env = dj_database_url.config(conn_max_age=500)
