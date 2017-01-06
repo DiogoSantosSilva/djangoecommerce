@@ -149,7 +149,7 @@ if not settings.DEBUG:
 
 	STATIC_URL = '/static/'
 
-	STATIC_ROOT = '/home/cfedeploy/webapps/mvpland_static/'
+	STATIC_ROOT = '/home//home/Desktop/ecommerce2/static_in_env/static_root'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
