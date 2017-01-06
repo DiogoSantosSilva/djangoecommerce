@@ -117,9 +117,6 @@ DATABASES['default'].update(db_from_env)
 	                'django.contrib.messages.context_processors.messages',
 	            ],
 	        },
-	    },
-	]
-
 	WSGI_APPLICATION = 'ecommerce2.wsgi.application'
 
 
