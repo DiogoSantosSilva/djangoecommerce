@@ -74,6 +74,7 @@ if not settings.DEBUG:
 	    #third party apps
 	    'crispy_forms',
 	    'registration',
+		'django_filters',
 	    #my apps
 		'newsletter',
 		'products',
