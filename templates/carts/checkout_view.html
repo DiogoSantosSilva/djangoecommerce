@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+<script>
+{% block jquery %}
+var clientToken = "{{ client_token }}";
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+
+{% endblock %}
+</script>
+
+
+{% block content %}
+{% if not user_can_continue %}
+<div class="col-sm-6">
+  <p class="lead text-center">Continue as guest</p>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-success" value="Continue as Guest"/>
+</form>
+
+</div>
+
+
+
+<div class="col-sm-6">
+  <p class="lead text-center">Login to continue</p>
+  <form method="post" action="{% url 'auth_login' %}">
+    {% csrf_token %}
+  {{login_form|crispy}}
+  <input type="hidden" name="next" value="{{ next_url }}" />
+  <input class="btn btn-success" type="submit" value="submit" />
+  </form>
+  <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+  <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+</div>
+
+{% else %}
+
+<h1 class="text-center">Your Order</h1>
+<hr />
+<div class="row">
+
+<div class="col-sm-5">
+      <table class="table ">
+        <tr>
+          <td>Items:</td>
+          <td>{% for i in order.cart.cartitem_set.all %}
+                <b>{{i.item.get_title}}</b>
+             {% endfor %}</td>
+        </tr>
+      <tr>
+        <td>Subtotal:</td>
+        <td>{{ order.cart.subtotal}}</td>
+      </tr>
+      <tr>
+        <td>Tax:</td>
+        <td>{{ order.cart.tax_total}}</td>
+      </tr>
+      <tr>
+        <td> Items total:</td>
+        <td>{{ order.cart.total}}</td>
+      </tr>
+      <tr>
+        <td>Shipping:</td>
+        <td>{{ order.shipping_total_price}}</td>
+      </tr>
+      <tr>
+        <td><strong>Total:</strong></td>
+        <td>{{ order.order_total}}</td>
+      </tr>
+    </table>
+</div>
+  <div class="col-sm-3">
+    <h3>Billing to</h3><p>{{order.billing_address.get_addresses}}</p>
+    <h2>shipping to</h2><p>{{order.shipping_address.get_addresses}}</p>
+    <a href="{% url 'order_address' %}">Change address</a>
+  </div>
+
+<div class="col-sm-4">
+  </form>
+    <form id="checkout" method="post" action="{% url 'checkout_final' %}">{% csrf_token %}
+    <div id="payment-form"></div>
+    <input type="submit" class="btn btn-success" value="complete Order">
+  </form>
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

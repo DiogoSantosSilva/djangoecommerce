@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+    <thead >
+      <tr>
+        <th>ITEM{% if order.cart.items.count > 1 %}S{% endif %}</th>
+        <th>TAX</th>
+        <th>SUBTOTAL</th>
+        <th>SHIPPING</th>
+        <th>ORDER TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{% for i in order.cart.cartitem_set.all %}<b>{{i.item.get_title}}</b>{% endfor %}</td>
+        <td>{{ order.cart.tax_total}}</td>
+        <td>{{ order.cart.subtotal}}</td>
+        <td>{{ order.shipping_total_price}}</td>
+        <td>{{ order.order_total}}</td>
+      </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>BILLING</th>
+        <th>SHIPPING</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{order.billing_address.get_addresses}}</td>
+        <td>{{order.shipping_address.get_addresses}}</td>
+      </tr>
+    </tbody>
+</table>

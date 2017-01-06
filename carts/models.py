@@ -35,8 +35,15 @@ post_save.connect(cart_item_post_save_receiver, sender=CartItem)
 
 post_delete.connect(cart_item_post_save_receiver, sender=CartItem)
 
+
+ORDER_STATUS = (
+    ("created","Created"),
+    ("completed", "Completed")
+)
+
 class Cart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
+    status = models.CharField(max_length=120, choices=ORDER_STATUS, default='created')
     items = models.ManyToManyField(Variation, through=CartItem)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

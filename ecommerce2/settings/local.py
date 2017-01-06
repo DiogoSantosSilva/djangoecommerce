@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     #third party apps
     'crispy_forms',
     'registration',
+    'django_filters',
     #my apps
     'newsletter',
     'products',
@@ -158,3 +159,11 @@ EMAIL_HOST_USER = 'panggolim@gmail.com'
 DEFAULT_FROM_EMAIL = 'panggolim@gmail.com'
 SERVER_EMAIL = 'panggolim@gmail.com'
 EMAIL_HOST_PASSWORD = 'Di728560@@'
+
+
+#BRAINTREE PAYMENTS DETAILS
+
+BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
+BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
+BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
+BRAINTREE_ENVIRONMENT = "sandbox"

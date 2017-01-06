@@ -38,11 +38,11 @@ if not settings.DEBUG:
 	DEBUG = False
 
 	ADMINS = (
-		("Justin", "codingforentrepreneurs@gmail.com"),
+		("diogo", "diogo.ds62@gmail.com"),
 
 		)
 
-	ALLOWED_HOSTS = ['cfedeploy.webfactional.com', 'trydjango.com', 'www.trydjango.com']
+	ALLOWED_HOSTS = ['https://multi-ecommerce.herokuapp.com/']
 	#purchasing domain name http://name.com
 
 	EMAIL_HOST = 'smtp.gmail.com'
@@ -51,9 +51,9 @@ if not settings.DEBUG:
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True
 
-	''' 
+	'''
 	If using gmail, you will need to
-	unlock Captcha to enable Django 
+	unlock Captcha to enable Django
 	to  send for you:
 	https://accounts.google.com/displayunlockcaptcha
 	'''
@@ -150,7 +150,7 @@ if not settings.DEBUG:
 
 	STATIC_ROOT = '/home/cfedeploy/webapps/mvpland_static/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
-	    
+
 	STATICFILES_DIRS = (
 	    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
 	    #os.path.join(BASE_DIR, "static_in_env"),
@@ -175,6 +175,9 @@ if not settings.DEBUG:
 	LOGIN_REDIRECT_URL = '/'
 
 
+	#BRAINTREE PAYMENTS DETAILS
 
-
-
+	BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
+	BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
+	BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
+	BRAINTREE_ENVIRONMENT = "sandbox"

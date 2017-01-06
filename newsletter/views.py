@@ -11,8 +11,8 @@ def home(request):
 	title = 'Sign Up Now'
 
 	featured_image = ProductFeatured.objects.first()
-	products = Product.objects.all().order_by("?")[:6]
-	products2 = Product.objects.all().order_by("?")[:6]
+	products = Product.objects.all().order_by("?")[:8]
+	products2 = Product.objects.all().order_by("?")[:4]
 
 	form = SignUpForm(request.POST or None)
 	context = {

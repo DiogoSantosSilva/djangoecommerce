@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Order Summary</h1>
+<hr />
+
+  {% include "orders/order_summary_short.html" with order=order%}
+
+{% endblock content %}

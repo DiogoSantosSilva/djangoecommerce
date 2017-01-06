@@ -1,11 +1,139 @@
+<style>
+{% block style %}
+.col-item
+{
+	padding: 10px;
+	border: 1px solid #E1E1E1;
+	border-radius: 4px;
+	background: #FFF;
+}
+.col-item .photo img
+{
+	margin: 0 auto;
+	width: 100%;
+}
 
-<div class="thumbnail text-center">
-<h4><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h4>
-	{% if product.get_image_url %}
-	<a href='{{ product.get_absolute_url }}'><img id='img' class='img-responsive' src='{{ product.get_image_url }}' /></a><br/>
-	{% endif %}
+.col-item .info
+{
+	padding: 0px;
+	border-radius: 0 0 5px 5px;
+	margin-top: 5px;
+}
 
-	{% if price == "True" %}
-		{{ product.variation_set.first.get_html_price|safe }}
-	{% endif %}
+.col-item .price
+{
+	/*width: 50%;*/
+	float: left;
+	margin-top: 5px;
+}
+
+.col-item .price h5
+{
+	line-height: 20px;
+	margin: 0;
+}
+
+.price-text-color
+{
+	color: #219FD1;
+}
+
+.col-item .info .rating
+{
+	color: #777;
+}
+
+.col-item .rating
+{
+	/*width: 50%;*/
+	float: left;
+	font-size: 17px;
+	text-align: right;
+	line-height: 52px;
+	margin-bottom: 10px;
+	height: 52px;
+}
+
+.col-item .separator
+{
+	border-top: 1px solid #E1E1E1;
+}
+
+
+
+.col-item .separator p
+{
+	line-height: 20px;
+	margin-bottom: 0;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.col-item .separator p i
+{
+	margin-right: 5px;
+}
+.col-item .btn-add
+{
+	width: 50%;
+	float: left;
+}
+
+.col-item .btn-add
+{
+	border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+	width: 50%;
+	float: left;
+	padding-left: 10px;
+}
+
+.col-item .price h5 {
+    position: relative;
+    bottom: -11px;
+    left: 15px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.col-item .info .rating {
+    color: #777;
+    position: relative;
+    right: 10px;
+}
+{% endblock %}
+</style>
+
+
+
+<div class="item active">
+	<div class="col-item">
+		<h5 class="text-center"><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h5>
+			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive" alt="a" /></a>
+		<div class="info">
+				<div class="row">
+					<div class="price col-md-6">
+						<h5 class="price-text-color">
+							{% if price == "True" %}
+								{{ product.variation_set.first.get_html_price|safe }}
+							{% endif %}
+						</h5>
+					</div>
+					<div class="rating hidden-sm col-md-6">
+						<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+						</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+						</i><i class="fa fa-star"></i>
+					</div>
+				</div>
+			<div class="separator ">
+						<form id='add-form' method="GET" action="{% url 'cart' %}">
+							<input  type="hidden" name="item" value="{{ product.variation_set.first.id }}"/>
+							<a onclick="$(this).closest('form').submit()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+						</form>
+			</div>
+		</div>
+	</div>
 </div>
