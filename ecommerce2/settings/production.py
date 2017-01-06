@@ -149,17 +149,19 @@ if not settings.DEBUG:
 
 	STATIC_URL = '/static/'
 
-	STATIC_ROOT = '/home//home/Desktop/ecommerce2/static_in_env/static_root'
+	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+	STATIC_ROOT = '/home//home/Desktop/ecommerce2/static_in_env/static_root/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
-	    os.path.join(BASE_DIR, "staticfiles", "our_static"),
+	    os.path.join(BASE_DIR, "static"),
 	    #os.path.join(BASE_DIR, "static_in_env"),
 	    #'/var/www/static/',
 	)
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = '/home/Desktop/ecommerce2/static_in_env/media_root/products'
+	MEDIA_ROOT = '/home/Desktop/ecommerce2/static_in_env/media_root/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 	db_from_env = dj_database_url.config(conn_max_age=500)
