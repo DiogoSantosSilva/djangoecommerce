@@ -25,6 +25,11 @@ import dj_database_url
 if not settings.DEBUG:
 	import os
 
+# add this
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 	#root of project
 
@@ -35,7 +40,7 @@ if not settings.DEBUG:
 	SECRET_KEY = 'csqwlmc8s55o($rt6ozh7u+ui9zb-et00w$d90j8$^!nvj41_r'
 
 	# SECURITY WARNING: don't run with debug turned on in production!
-	DEBUG = False
+	DEBUG = True
 
 	ADMINS = (
 		("diogo", "diogo.ds62@gmail.com"),
@@ -146,19 +151,18 @@ if not settings.DEBUG:
 
 	# Static files (CSS, JavaScript, Images)
 	# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 	STATIC_URL = '/static/'
-
-	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-	STATIC_ROOT = '/home//home/Desktop/ecommerce2/static_in_env/static_root/'
-	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
 	    os.path.join(BASE_DIR, "static"),
 	    #os.path.join(BASE_DIR, "static_in_env"),
 	    #'/var/www/static/',
 	)
+
+	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+	STATIC_ROOT = '/home/Desktop/ecommerce2/static_in_env/static_root/'
+	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	MEDIA_URL = '/media/'
 	MEDIA_ROOT = '/home/Desktop/ecommerce2/static_in_env/media_root/'
