@@ -159,7 +159,7 @@ if not settings.DEBUG:
 	)
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = '/home/cfedeploy/webapps/mvpland_media/'
+	MEDIA_ROOT = '/home/Desktop/ecommerce2/static_in_env/media_root/products'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 	db_from_env = dj_database_url.config(conn_max_age=500)
