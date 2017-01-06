@@ -56,6 +56,9 @@ DATABASES['default'].update(db_from_env)
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True
 
+	DEFAULT_FROM_EMAIL = [("Panggolim <panggolim@gmail.com>")]
+	MANAGERS=ADMINS
+
 	'''
 	If using gmail, you will need to
 	unlock Captcha to enable Django
