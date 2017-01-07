@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'csqwlmc8s55o($rt6ozh7u+ui9zb-et00w$d90j8$^!nvj41_r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -33,9 +33,9 @@ EMAIL_HOST_PASSWORD = 'yourpassword'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-''' 
+'''
 If using gmail, you will need to
-unlock Captcha to enable Django 
+unlock Captcha to enable Django
 to  send for you:
 https://accounts.google.com/displayunlockcaptcha
 '''
@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
-    
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static_in_pro", "our_static"),
     #os.path.join(BASE_DIR, "static_in_env"),
@@ -144,6 +144,3 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-
-
-
