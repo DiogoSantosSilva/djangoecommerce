@@ -26,9 +26,6 @@ if not settings.DEBUG:
 	import os
 
 # add this
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 	#root of project
