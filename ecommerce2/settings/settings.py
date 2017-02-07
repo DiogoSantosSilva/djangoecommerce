@@ -203,14 +203,6 @@ if not settings.DEBUG:
 		'Cache-Control': 'public, max-age=31556926'
 	}
 
-    # Thumbnails
-    THUMBNAIL_ALIASES = {
-        '': {
-            'product_image': {'size': (285, 160), 'crop': True},
-        },
-    }
-    THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
-
 try:
     from .local import *
 except ImportError:
