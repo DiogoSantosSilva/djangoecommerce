@@ -150,8 +150,19 @@ if not settings.DEBUG:
     MEDIA_URL = '/media/'
 
     ALLOWED_HOSTS = ['*']
+STATIC_URL = '/static/'
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    # os.path.join(BASE_DIR, "static_in_env"),
+    # '/var/www/static/',
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
+BASE_DIR, 'staticfiles')
 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -175,24 +186,6 @@ if not settings.DEBUG:
     BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
     BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
     BRAINTREE_ENVIRONMENT = "sandbox"
-
-    # AWS
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
-
-    AWS_S3_SECURE_URLS = True
-    AWS_QUERYSTRING_AUTH = False
-    AWS_PRELOAD_METADATA = True
-    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
-    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-    AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
-    AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
-
-    STATICFILES_STORAGE = 'multi-ecommerce.settings.s3util.StaticStorage'
-    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-
-    DEFAULT_FILE_STORAGE = 'multi-ecommerce.s3util.MediaStorage'
-    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
     AWS_HEADERS = {
         'x-amz-acl': 'public-read',
