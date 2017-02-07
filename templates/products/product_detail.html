@@ -133,7 +133,11 @@
 
                   <input  class="form-control input-sm" type="number" name="qty" value="1"/>
                   <br />
-                  <b>{% if item.item.inventory < 1%}Out of stock {% else %}In stock  {% endif %}</b>
+                  {% if product.variation.inventory < 1 %}
+                    <span>Status: </span><span class="text-success"><strong>Out of Stock</strong></span>
+                  {% else %}
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                  {% endif %}
                   <hr>
                   <button id='submit-btn' type="button" class="btn btn-success" >Add to cart</button>
               </form>

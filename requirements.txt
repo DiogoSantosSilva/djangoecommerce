@@ -1,3 +1,4 @@
+boto==2.45.0
 braintree==3.33.0
 cffi==1.8.3
 cryptography==1.5.2
@@ -6,6 +7,7 @@ Django==1.8.4
 django-crispy-forms==1.6.1
 django-filter==0.11.0
 django-registration-redux==1.4
+django-storages==1.5.2
 gunicorn==19.6.0
 idna==2.1
 ndg-httpsclient==0.4.2
