@@ -6,11 +6,10 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-import os
 
-DEBUG = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # root of project
@@ -137,18 +136,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    # os.path.join(BASE_DIR, "static_in_env"),
+    # '/var/www/static/',
+)
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
 # Crispy FORM TAGs SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -158,10 +158,10 @@ REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
-# BRAINTREE PAYMENTS DETAILS
+# Braintree Payments Details
+BRAINTREE_PUBLIC = "qn3p5n7njksw47r3"
+BRAINTREE_PRIVATE = "d14ac944794c0df1c81991ecf49221ff"
+BRAINTREE_MERCHANT_ID = "n84nynknvzz3j3sz"
+BRAINTREE_ENVIRONEMNT = "Sandbox"
 
-BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
-BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
-BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
-BRAINTREE_ENVIRONMENT = "sandbox"
 
