@@ -156,14 +156,15 @@ if not settings.DEBUG:
 	    #'/var/www/static/',
 	)
 
-	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-	STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
-	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
+	STATIC_URL = '/static/'
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
-	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
+
+	ALLOWED_HOSTS = ['*']
+
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+	MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 	db_from_env = dj_database_url.config(conn_max_age=500)
 	DATABASES['default'].update(db_from_env)
