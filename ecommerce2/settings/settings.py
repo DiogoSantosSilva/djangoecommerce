@@ -63,8 +63,6 @@ if not settings.DEBUG:
 	https://accounts.google.com/displayunlockcaptcha
 	'''
 
-
-
 	# Application definition
 
 	INSTALLED_APPS = (
