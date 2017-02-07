@@ -189,7 +189,7 @@ if not settings.DEBUG:
 	AWS_PRELOAD_METADATA = True
 	AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
 	AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-	AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
+    AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
 	AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
 
 	STATICFILES_STORAGE = 'djangoecommerce.s3util.StaticStorage'
