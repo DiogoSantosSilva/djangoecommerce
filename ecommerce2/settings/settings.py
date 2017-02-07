@@ -202,8 +202,3 @@ if not settings.DEBUG:
 		'x-amz-acl': 'public-read',
 		'Cache-Control': 'public, max-age=31556926'
 	}
-
-try:
-    from .local import *
-except ImportError:
-    pass
