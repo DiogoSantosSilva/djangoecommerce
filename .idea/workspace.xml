@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46f1e048-b783-47c5-9960-fe5891d08827" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/settings/production.py" afterPath="$PROJECT_DIR$/ecommerce2/settings/production.py" />
     </list>
     <ignored path="src.iws" />
@@ -72,8 +73,8 @@
       <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="166" column="48" lean-forward="false" selection-start-line="166" selection-start-column="48" selection-end-line="166" selection-end-column="48" />
+            <state relative-caret-position="460">
+              <caret line="211" column="52" lean-forward="false" selection-start-line="211" selection-start-column="52" selection-end-line="211" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -934,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce2/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="166" column="48" lean-forward="false" selection-start-line="166" selection-start-column="48" selection-end-line="166" selection-end-column="48" />
+        <state relative-caret-position="460">
+          <caret line="211" column="52" lean-forward="false" selection-start-line="211" selection-start-column="52" selection-end-line="211" selection-end-column="52" />
           <folding />
         </state>
       </provider>

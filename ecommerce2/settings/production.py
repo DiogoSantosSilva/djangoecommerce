@@ -148,13 +148,6 @@ if not settings.DEBUG:
 
 	# Static files (CSS, JavaScript, Images)
 	# https://docs.djangoproject.com/en/1.8/howto/static-files/
-	STATIC_URL = '/static/'
-
-	STATICFILES_DIRS = (
-	    os.path.join(BASE_DIR, "static"),
-	    #os.path.join(BASE_DIR, "static_in_env"),
-	    #'/var/www/static/',
-	)
 
 	STATIC_URL = '/static/'
 
@@ -209,3 +202,16 @@ if not settings.DEBUG:
 		'x-amz-acl': 'public-read',
 		'Cache-Control': 'public, max-age=31556926'
 	}
+
+    # Thumbnails
+    THUMBNAIL_ALIASES = {
+        '': {
+            'product_image': {'size': (285, 160), 'crop': True},
+        },
+    }
+    THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
+
+try:
+    from .local import *
+except ImportError:
+    pass
