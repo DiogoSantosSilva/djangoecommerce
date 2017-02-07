@@ -192,13 +192,26 @@ if not settings.DEBUG:
     AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
 	AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
 
-	STATICFILES_STORAGE = 'ecommerce2.s3util.StaticStorage'
+	STATICFILES_STORAGE = 'ecommece2.s3util.StaticStorage'
 	STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
-	DEFAULT_FILE_STORAGE = 'ecommerce2.s3util.MediaStorage'
+	DEFAULT_FILE_STORAGE = 'djangoecommerce.s3util.MediaStorage'
 	MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 	AWS_HEADERS = {
 		'x-amz-acl': 'public-read',
 		'Cache-Control': 'public, max-age=31556926'
 	}
+
+    # Thumbnails
+    THUMBNAIL_ALIASES = {
+        '': {
+            'product_image': {'size': (285, 160), 'crop': True},
+        },
+    }
+    THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
+
+try:
+    from .base import *
+except ImportError:
+    pass
