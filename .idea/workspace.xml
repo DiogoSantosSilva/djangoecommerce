@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46f1e048-b783-47c5-9960-fe5891d08827" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/settings/production.py" afterPath="$PROJECT_DIR$/ecommerce2/settings/production.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/settings/base.py" afterPath="$PROJECT_DIR$/ecommerce2/settings/base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce2/settings/local.py" afterPath="$PROJECT_DIR$/ecommerce2/settings/local.py" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="540">
               <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
               <folding>
                 <element signature="e#478#510#0" expanded="true" />
@@ -74,18 +75,18 @@
       <file leaf-file-name="local.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+            <state relative-caret-position="234">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce2/settings/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="59" column="18" lean-forward="true" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+            <state relative-caret-position="198">
+              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -206,9 +207,9 @@
         <option value="$PROJECT_DIR$/ecommerce2/settings.py" />
         <option value="$PROJECT_DIR$/ecommerce2/wsgi.py" />
         <option value="$PROJECT_DIR$/ecommerce2/settings/__init__.py" />
+        <option value="$PROJECT_DIR$/ecommerce2/settings/production.py" />
         <option value="$PROJECT_DIR$/ecommerce2/settings/local.py" />
         <option value="$PROJECT_DIR$/ecommerce2/settings/base.py" />
-        <option value="$PROJECT_DIR$/ecommerce2/settings/production.py" />
       </list>
     </option>
   </component>
@@ -944,16 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce2/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce2/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="59" column="18" lean-forward="true" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -968,11 +961,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce2/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="540">
           <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
           <folding>
             <element signature="e#478#510#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce2/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
