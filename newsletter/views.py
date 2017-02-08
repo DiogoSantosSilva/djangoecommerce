@@ -9,7 +9,6 @@ from products.models import ProductFeatured, Product
 # Create your views here.
 def home(request):
 	title = 'Sign Up Now'
-
 	featured_image = ProductFeatured.objects.filter(active=True).order_by("?").first()
 	products = Product.objects.all().order_by("?")[:8]
 	products2 = Product.objects.all().order_by("?")[:4]
