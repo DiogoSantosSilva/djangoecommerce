@@ -119,13 +119,12 @@ if not settings.DEBUG:
 
 	#production deploy postgres
 	# keep this
-
-    DATABASES = {
-	    'default': {
-	        'ENGINE': 'django.db.backends.sqlite3',
-	        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-	    }
-	}
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+			}
+		}
 	# add this
 	import dj_database_url
 	db_from_env = dj_database_url.config()
