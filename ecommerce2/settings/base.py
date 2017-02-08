@@ -128,10 +128,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname((BASE_DIR), "static"))
+STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname((BASE_DIR), "stattic"))
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "staticfiles"),
+    os.path.join(os.path.dirname(BASE_DIR, "static_in_pro", "static_root"))
     #os.path.join(BASE_DIR, "static_in_env"),
     #'/var/www/static/',
 )
