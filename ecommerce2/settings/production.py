@@ -19,6 +19,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.conf import settings
+AUTH_PROFILE_MODULE = 'usermanagement.UserProfile'
 
 if not settings.DEBUG:
 	import os
@@ -31,7 +32,7 @@ if not settings.DEBUG:
 	# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 	# SECURITY WARNING: keep the secret key used in production secret!
-	SECRET_KEY = '_k&!^if17lw$9pfpeq60^68&@)#%27%hjx3sw(t3)e93mcz6=9'
+	SECRET_KEY='...'
 
 	# SECURITY WARNING: don't run with debug turned on in production!
 	DEBUG = False
