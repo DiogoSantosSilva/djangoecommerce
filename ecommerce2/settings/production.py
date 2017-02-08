@@ -127,7 +127,7 @@ if not settings.DEBUG:
 	        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 	    }
 	}
-	
+
 	import dj_database_url
 	db_from_env = dj_database_url.config()
 	DATABASES['default'].update(db_from_env)
@@ -190,9 +190,9 @@ if not settings.DEBUG:
 	AWS_PRELOAD_METADATA = True
 	AWS_QUERYSTRING_AUTH = True
 
-	DEFAULT_FILE_STORAGE = 'multi-ecommerce.utils.MediaRootS3BotoStorage'
-	STATICFILES_STORAGE = 'multi-ecommerce.utils.StaticRootS3BotoStorage'
-	AWS_STORAGE_BUCKET_NAME = '<your_bucket_name>'
+	DEFAULT_FILE_STORAGE = 'ecommerce2.utils.MediaRootS3BotoStorage'
+	STATICFILES_STORAGE = 'ecommerce2.utils.StaticRootS3BotoStorage'
+	AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
 	S3DIRECT_REGION = 'us-west-2'
 	S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 	MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
