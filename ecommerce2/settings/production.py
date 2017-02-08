@@ -18,9 +18,12 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-if not DEBUG:
-	BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+from django.conf import settings
+
+if not settings.DEBUG:
 	import os
+
+	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 	#root of project
 
@@ -28,7 +31,7 @@ if not DEBUG:
 	# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 	# SECURITY WARNING: keep the secret key used in production secret!
-	SECRET_KEY = 'csqwlmc8s55o($rt6ozh7u+ui9zb-et00w$d90j8$^!nvj41_r'
+	SECRET_KEY = '_k&!^if17lw$9pfpeq60^68&@)#%27%hjx3sw(t3)e93mcz6=9'
 
 	# SECURITY WARNING: don't run with debug turned on in production!
 	DEBUG = False
