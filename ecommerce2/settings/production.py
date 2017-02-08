@@ -124,7 +124,7 @@ if not settings.DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            'NAME':  'NAME': '/home/ecommerce2/sqlite3.db',
         }
     }
 	# add this
