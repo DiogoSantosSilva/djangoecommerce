@@ -1,5 +1,6 @@
 ecommerce2/settings/db_password.py
 ecommerce2/settings/local.py
+settings/local.py
 
 bin/
 include/
