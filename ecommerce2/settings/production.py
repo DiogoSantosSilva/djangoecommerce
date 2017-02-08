@@ -16,12 +16,12 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
+from django.conf import settings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 if not settings.DEBUG:
-	from django.conf import settings
+	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	import os
-	BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
 	#root of project
 
 	# Quick-start development settings - unsuitable for production
@@ -122,11 +122,11 @@ if not settings.DEBUG:
 	# keep this
 
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME':  'NAME': '/home/ecommerce2/sqlite3.db',
-        }
-    }
+	    'default': {
+	        'ENGINE': 'django.db.backends.sqlite3',
+	        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	    }
+	}
 	# add this
 	import dj_database_url
 	db_from_env = dj_database_url.config()
