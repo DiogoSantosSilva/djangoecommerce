@@ -119,24 +119,14 @@ if not settings.DEBUG:
 	# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 	#production deploy postgres
-
 	# keep this
-	if ON_HEROKU == '1':
 
-	    # Parse database configuration from $DATABASE_URL
-	    import dj_database_url
-	#    DATABASES['default'] = dj_database_url.config()
-	    DATABASES = {'default' : dj_database_url.config()}
-
-
-	else:
-	    # else we use local sqlite database
-	    DATABASES = {
-	        'default': {
-	            'ENGINE': 'django.db.backends.sqlite3',
-	            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-	        }
-	    }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        }
+    }
 	# add this
 	import dj_database_url
 	db_from_env = dj_database_url.config()
