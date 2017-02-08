@@ -34,14 +34,14 @@ if not settings.DEBUG:
 	SECRET_KEY = 'csqwlmc8s55o($rt6ozh7u+ui9zb-et00w$d90j8$^!nvj41_r'
 
 	# SECURITY WARNING: don't run with debug turned on in production!
-	DEBUG = True
+	DEBUG = False
 
 	ADMINS = (
 		("Justin", "codingforentrepreneurs@gmail.com"),
 
 		)
 
-	ALLOWED_HOSTS = ['cfedeploy.webfactional.com', 'trydjango.com', 'www.trydjango.com']
+	ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 	#purchasing domain name http://name.com
 
 	EMAIL_HOST = 'smtp.gmail.com'
@@ -128,6 +128,9 @@ if not settings.DEBUG:
 	        'PASSWORD': dbpass,
 	    }
 	}
+	import dj_database_url
+	db_from_env = dj_database_url.config()
+	DATABASES['default'].update(db_from_env)
 
 	# Internationalization
 	# https://docs.djangoproject.com/en/1.8/topics/i18n/
