@@ -152,17 +152,17 @@ if not settings.DEBUG:
 
 	STATIC_URL = '/static/'
 
-	STATIC_ROOT = '/home/diogo/desktop/ecommerce2/src/static_in_pro/static_root/'
+	STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
-	    os.path.join(BASE_DIR, "static"),
+	    os.path.join(BASE_DIR, "static_in_env"),
 	    #os.path.join(BASE_DIR, "static_in_env"),
 	    #'/var/www/static/',
 	)
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = '/home/diogo/desktop/ecommerce2/src/static_in_pro/media_root/'
+	MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 
