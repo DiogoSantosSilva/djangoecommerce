@@ -22,9 +22,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import dj_database_url
 
 import os
-
+# add this
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+#root of project
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -39,7 +39,7 @@ ADMINS = (
 
     )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://multi-ecommerce.herokuapp.com/']
 #purchasing domain name http://name.com
 
 EMAIL_HOST = 'smtp.gmail.com'
@@ -109,9 +109,12 @@ TEMPLATES = [
         },
     },
 ]
+
 WSGI_APPLICATION = 'ecommerce2.wsgi.application'
+
+
 # Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -135,24 +138,29 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/1.8/howto/static-files/
+
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 STATICFILES_DIRS = (
-os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    # os.path.join(BASE_DIR, "static_in_env"),
+    # '/var/www/static/',
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
-#heroku setting for deploy
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
 #Crispy FORM TAGs SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 
 #DJANGO REGISTRATION REDUX SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -162,6 +170,7 @@ LOGIN_REDIRECT_URL = '/'
 
 
 #BRAINTREE PAYMENTS DETAILS
+
 BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
 BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
 BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
