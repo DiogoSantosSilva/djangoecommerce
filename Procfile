@@ -1,1 +1,1 @@
-web: gunicorn ecommerce2.wsgi --log-file -
+web: gunicorn  hello:application -b xx.xxx.xxx.xx:8000
