@@ -20,9 +20,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 from django.conf import settings
+ON_HEROKU = os.environ.get('ON_HEROKU')
+import os
 
 if not settings.DEBUG:
-	import os
+
 
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 	#root of project
@@ -83,6 +85,8 @@ if not settings.DEBUG:
 	    'orders',
 	    'sellers',
 	)
+
+	ROOT_URLCONF = 'ecommerce2.urls'
 
 	MIDDLEWARE_CLASSES = (
 	    'django.contrib.sessions.middleware.SessionMiddleware',
