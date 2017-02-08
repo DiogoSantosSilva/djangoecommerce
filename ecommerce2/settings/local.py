@@ -44,6 +44,7 @@ https://accounts.google.com/displayunlockcaptcha
 
 # Application definition
 
+
 INSTALLED_APPS = (
     #django app
     'django.contrib.admin',
@@ -55,13 +56,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party apps
     'crispy_forms',
-    'django_filters',
     'registration',
+    'django_filters',
     #my apps
-    'carts',
     'newsletter',
-    'orders',
     'products',
+    'carts',
+    'orders',
+    'sellers',
 )
 
 MIDDLEWARE_CLASSES = (

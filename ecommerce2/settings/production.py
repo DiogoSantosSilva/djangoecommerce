@@ -61,6 +61,7 @@ if not settings.DEBUG:
 
 	# Application definition
 
+
 	INSTALLED_APPS = (
 	    #django app
 	    'django.contrib.admin',
@@ -73,10 +74,15 @@ if not settings.DEBUG:
 	    #third party apps
 	    'crispy_forms',
 	    'registration',
+	    'django_filters',
 	    #my apps
 	    'newsletter',
+	    'products',
+	    'carts',
+	    'orders',
+	    'sellers',
 	)
-
+	
 	MIDDLEWARE_CLASSES = (
 	    'django.contrib.sessions.middleware.SessionMiddleware',
 	    'django.middleware.common.CommonMiddleware',
@@ -112,17 +118,16 @@ if not settings.DEBUG:
 	# Database
 	# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+	#production deploy postgres
 	from .db_password import DBPASS
-
 	DATABASES = {
 	    'default': {
 	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	        'NAME': "mvpland",
-	        'USER': "cfedeploy",
-	        'PASSWORD': DBPASS,
+	        'NAME': "test",
+	        'USER': "diogo",
+	        'PASSWORD': dbpass,
 	    }
 	}
-
 
 	# Internationalization
 	# https://docs.djangoproject.com/en/1.8/topics/i18n/
