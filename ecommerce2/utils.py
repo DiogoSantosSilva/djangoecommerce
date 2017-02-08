@@ -1,4 +1,10 @@
 from storages.backends.s3boto import S3BotoStorage
 
-StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
-MediaRootS3BotoStorage  = lambda: S3BotoStorage(location='media')
+from django.conf import settings
+from storages.backends.s3boto import S3BotoStorage
+
+class StaticStorage(S3BotoStorage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3BotoStorage):
+    location = settings.MEDIAFILES_LOCATION
