@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirnam(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 #root of project
 
 # Quick-start development settings - unsuitable for production
@@ -140,7 +140,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 
-
 #Crispy FORM TAGs SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -152,7 +151,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 #BRAINTREE PAYMENTS DETAILS
-	#BRAINTREE PAYMENTS DETAILS
 
 BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
 BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
