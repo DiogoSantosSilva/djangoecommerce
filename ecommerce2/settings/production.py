@@ -21,6 +21,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 if not settings.DEBUG:
 	from django.conf import settings
 	import os
+	ON_HEROKU = True
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 	#root of project
@@ -132,8 +133,7 @@ if not settings.DEBUG:
 	# add this
 	import dj_database_url
 	db_from_env = dj_database_url.config()
-	DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
+	DATABASES['default'].update(db_from_env)
 	# Internationalization
 	# https://docs.djangoproject.com/en/1.8/topics/i18n/
 
