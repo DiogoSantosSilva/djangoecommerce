@@ -21,7 +21,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 if not settings.DEBUG:
 	from django.conf import settings
 	import os
-	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 	#root of project
 
 	# Quick-start development settings - unsuitable for production
