@@ -151,7 +151,7 @@ if not settings.DEBUG:
 
 	STATIC_URL = '/static/'
 
-	STATIC_ROOT = '/home/diogo/desktop/ecommerce2/static_in_env/static_root/'
+	STATIC_ROOT = '/home/diogo/desktop/ecommerce2/src/static_in_pro/static_root/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
@@ -161,7 +161,7 @@ if not settings.DEBUG:
 	)
 
 	MEDIA_URL = '/media/'
-	MEDIA_ROOT = '/home/diogo/desktop/ecommerce2/static_in_env/media_root/'
+	MEDIA_ROOT = '/home/diogo/desktop/ecommerce2/src/static_in_pro/media_root/'
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
 
@@ -187,7 +187,7 @@ if not settings.DEBUG:
 
 	STATICFILES_LOCATION = 'static'
 	MEDIAFILES_LOCATION = 'media'
-	
+
 	AWS_FILE_EXPIRE = 200
 	AWS_PRELOAD_METADATA = True
 	AWS_QUERYSTRING_AUTH = True
