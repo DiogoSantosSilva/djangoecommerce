@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ecommerce2.settings") #nirla is the name of the project
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ecommerce2.settings") #ecommerce2 is the name of the project
 
 
 application = Cling(get_wsgi_application())
