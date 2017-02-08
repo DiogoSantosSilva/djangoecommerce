@@ -193,10 +193,10 @@ AWS_SECRET_ACCESS_KEY = "AWSSecretKey=gVW2T4XWykLKhgdBv2SKh9VSRUzRQEF7HMJPpAPT"
 AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
 AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
 
-STATICFILES_STORAGE = 'multi-ecommerce.s3util.StaticStorage'
+STATICFILES_STORAGE = 'ecommerce2.s3util.StaticStorage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
-DEFAULT_FILE_STORAGE = 'multi-ecommerce.s3util.MediaStorage'
+DEFAULT_FILE_STORAGE = 'ecommerce2.s3util.MediaStorage'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 AWS_HEADERS = {
