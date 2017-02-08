@@ -132,7 +132,7 @@ if not settings.DEBUG:
 	# add this
 	import dj_database_url
 	db_from_env = dj_database_url.config()
-	DATABASES['default'].update(db_from_env)
+	DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 	# Internationalization
 	# https://docs.djangoproject.com/en/1.8/topics/i18n/
