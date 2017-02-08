@@ -155,7 +155,7 @@ if not settings.DEBUG:
 	#os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
 
 	STATICFILES_DIRS = (
-	    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+	    os.path.join(BASE_DIR, "static"),
 	    #os.path.join(BASE_DIR, "static_in_env"),
 	    #'/var/www/static/',
 	)
@@ -185,7 +185,9 @@ if not settings.DEBUG:
 	AWS_ACCESS_KEY_ID = "AKIAJBXGEKRT5MG4ML2A>"
 	AWS_SECRET_ACCESS_KEY = "AWSSecretKey=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"
 
-
+	STATICFILES_LOCATION = 'static'
+	MEDIAFILES_LOCATION = 'media'
+	
 	AWS_FILE_EXPIRE = 200
 	AWS_PRELOAD_METADATA = True
 	AWS_QUERYSTRING_AUTH = True
