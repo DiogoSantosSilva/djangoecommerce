@@ -18,8 +18,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
-
+#
+# from django.conf import settings
+# if settings.DEBUG
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -80,6 +81,7 @@ INSTALLED_APPS = (
     'products',
     'carts',
     'orders',
+Query-string authentication requires the Signature, Expires and AWSAccessKeyId parameters
     'sellers',
 )
 
@@ -191,7 +193,7 @@ AWS_SECRET_ACCESS_KEY = "gVW2T4XWykLKhgdBv2SKh9VSRUzRQEF7HMJPpAPT"
 
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
-AWS_QUERYSTRING_AUTH = True
+AWS_QUERYSTRING_AUTH = False
 
 DEFAULT_FILE_STORAGE = 'ecommerce2.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'ecommerce2.utils.StaticRootS3BotoStorage'
@@ -202,6 +204,7 @@ MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + 'static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
 
 import datetime
 
