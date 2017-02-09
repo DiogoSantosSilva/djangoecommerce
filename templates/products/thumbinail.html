@@ -7,11 +7,7 @@
 	border-radius: 4px;
 	background: #FFF;
 }
-.col-item .photo img
-{
-	margin: 0 auto;
-	width: 100%;
-}
+
 
 .col-item .info
 {
@@ -19,24 +15,6 @@
 	border-radius: 0 0 5px 5px;
 	margin-top: 5px;
 }
-
-.col-item .price
-{
-	/*width: 50%;*/
-	float: left;
-	margin-top: 5px;
-}
-
-.col-item .price h5
-{
-	line-height: 20px;
-	margin: 0;
-}
-
-.price-text-color
-{
-	color: #219FD1;
-}$50.00
 
 .col-item .info .rating
 {
@@ -89,9 +67,6 @@
 	padding-left: 10px;
 }
 
-.col-item .price  {
-    margin: 0 0 10px 20px ;
-}
 
 .col-item .info .rating {
     color: #777;
@@ -109,7 +84,7 @@
 			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive" alt="a" /></a>
 		<div class="info">
 				<div class="row">
-					<div class="price">
+					<div id="price" class="col-md-8 col-sm-4">
 						<h4>
 							{% if price == "True" %}
 						 	<strong>{{ product.variation_set.first.get_html_price|safe }}</strong>
