@@ -91,12 +91,8 @@
 	padding-left: 10px;
 }
 
-.col-item .price h5 {
-    position: relative;
-    bottom: -11px;
-    left: 15px;
-    line-height: 20px;
-    margin: 0;
+.col-item .price  {
+    margin: 0 0 10px 20px ;
 }
 
 .col-item .info .rating {
@@ -115,18 +111,18 @@
 			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive" alt="a" /></a>
 		<div class="info">
 				<div class="row">
-					<div class="price col-md-6">
+					<div class="price">
 						<h4>
 							{% if price == "True" %}
-								<b>{{ product.variation_set.first.get_html_price|safe }}</b>
+						 	<strong>{{ product.variation_set.first.get_html_price|safe }}</strong>
 							{% endif %}
 						</h4>
 					</div>
-					<div class="rating hidden-sm col-md-6">
+					<!--<div class="rating hidden-sm col-md-6">
 						<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
 						</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
 						</i><i class="fa fa-star"></i>
-					</div>
+					</div>-->
 				</div>
 			<div class="separator ">
 						<form id='add-form' method="GET" action="{% url 'cart' %}">
