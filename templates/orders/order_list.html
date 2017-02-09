@@ -1,15 +1,12 @@
-{% extends "base.html" %}
+{% extends "dashboard/sellers.html" %}
 
-{% block content %}
-
+{% block accounts_content%}
 {% if object_list|length <= 0 %}
 <div class="text-center">
   <p>You do not currently have orders. </p>
 </div>
 
 {% else %}
-<h1>Order List</h1>
-<hr />
 
 <table class="table table-bordered">
   <thead>
@@ -28,4 +25,4 @@
   </tbody>
 </table>
 {% endif %}
-{% endblock content %}
+{% endblock accounts_content%}

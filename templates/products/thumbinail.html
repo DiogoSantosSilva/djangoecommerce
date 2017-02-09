@@ -8,7 +8,6 @@
 	background: #FFF;
 }
 
-
 .col-item .info
 {
 	padding: 0px;
@@ -37,8 +36,6 @@
 	border-top: 1px solid #E1E1E1;
 }
 
-
-
 .col-item .separator p
 {
 	line-height: 20px;
@@ -57,9 +54,6 @@
 	float: left;
 }
 
-.col-item .btn-add
-{$50.00
-
 .col-item .btn-details
 {
 	width: 50%;
@@ -67,21 +61,20 @@
 	padding-left: 10px;
 }
 
-
 .col-item .info .rating {
     color: #777;
     position: relative;
     right: 10px;
 }
+
+
 {% endblock %}
 </style>
-
-
 
 <div class="item active">
 	<div class="col-item">
 		<h5 class="text-center"><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h5>
-			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive" alt="a" /></a>
+			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive"  /></a>
 		<div class="info">
 				<div class="row">
 					<div id="price" class="col-md-8 col-sm-4">
