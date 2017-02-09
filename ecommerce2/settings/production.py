@@ -195,7 +195,7 @@ AWS_QUERYSTRING_AUTH = True
 
 DEFAULT_FILE_STORAGE = 'ecommerce2.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'ecommerce2.utils.StaticRootS3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = '<your_bucket_name>'
+AWS_STORAGE_BUCKET_NAME = 'multi-ecommerce'
 S3DIRECT_REGION = 'us-west-2'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
