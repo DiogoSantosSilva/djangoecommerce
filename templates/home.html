@@ -38,7 +38,9 @@
 				<a class="btn btn-md btn-info" href="{{ featured_image.product.get_absolute_url}}" role="button">More Details</a>
 				<h1 style="color:white">{{featured_image.product.title}}</h1>
 				{% if not featured_image.make_image_background%}
-					<img src="{{ product.get_image_url }}" class="img-responsive" />
+					<div class='col-sm-6' >
+						<img src="{{ featured_image.image.url }}" class='img-responsive' />
+					</div>
 				{% endif %}
 			</div>
 		{% endif %}
