@@ -20,8 +20,7 @@
 	padding-top:100px;
 	padding-left: 40px;
 	{% if featured_image.make_image_background %}
-		height: 400px;
-		background-image:
+		background-image: url("{{ featured_image.image.url }}");
 		background-repeat: no-repeat;
 		background-color: #000;
 		background-size: cover;
