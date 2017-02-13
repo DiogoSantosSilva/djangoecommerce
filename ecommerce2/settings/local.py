@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yourgmail@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_HOST_USER = 'panggolim@gmail.com'
+EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 '''
 If using gmail, you will need to
 unlock Captcha to enable Django
@@ -56,8 +56,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party apps
     'crispy_forms',
-    'registration',
     'django_filters',
+    'registration',
     #my apps
     'newsletter',
     'products',
@@ -148,7 +148,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-
 #BRAINTREE PAYMENTS DETAILS
 
 BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"

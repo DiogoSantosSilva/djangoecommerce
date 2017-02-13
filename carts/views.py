@@ -17,12 +17,12 @@ from orders.mixins import CartOrderMixin
 from products.models import Variation
 
 
-# if settings.DEBUG:
-#     braintree.Configuration.configure(braintree.Environment.Sandbox,
-#         merchant_id = settings.BRAINTREE_MERCHAND_ID,
-#         public_key = settings.BRAINTREE_PUBLIC,
-#         private_key = settings.BRAINTREE_PRIVATE
-#     )
+if settings.DEBUG:
+    braintree.Configuration.configure(braintree.Environment.Sandbox,
+        merchant_id = settings.BRAINTREE_MERCHAND_ID,
+        public_key = settings.BRAINTREE_PUBLIC,
+        private_key = settings.BRAINTREE_PRIVATE
+    )
 
 # Create your views here.
 class ItemCountView(View):
