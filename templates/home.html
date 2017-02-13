@@ -1,4 +1,4 @@
-  {% extends "base.html" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
@@ -13,7 +13,7 @@
 	background-color:#5ACDFF;
 	color: #000;
 	{% if featured_image.make_image_background %}
-	background-image: url(" {{ featured_image.image.url }} ");
+	background-image:url("{{ featured_image.image.url }}");
 	background-repeat: no-repeat;
 	background-color: #000;
 	background-size: cover;
@@ -28,7 +28,7 @@
 {% block jumbotron %}
 
 	{% if featured_image %}
-	<div class="jumbotron" >
+	<div class="jumbotron" style="">
 	 <div class="container">
 		<div class="row">
 			<div class='col-sm-12 text-center {% if featured_image.text_right %} pull-right {% endif %}'>
@@ -44,9 +44,7 @@
 			{% endif %}
 			</div>
 		</div>
-	 </div>
-
-
+	</div>
 	{% else %}
 	<div class="jumbotron">
 	<div class="container">
