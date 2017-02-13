@@ -21,10 +21,11 @@
 	padding-left: 40px;
 	{% if featured_image.make_image_background %}
 		height: 400px;
-		background-image: url("{{ featured_image.image.url }}");
+		background-image:
 		background-repeat: no-repeat;
 		background-color: #000;
 		background-size: cover;
+		background-position-y: -272px;
 
 	{% endif %}
 }
@@ -43,9 +44,8 @@
 			<p>
 				<a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
 			</p>
-			<img src="{{ featured_image.image.url }}" class='img-responsive' />
 			</div>
-			{% if not featured_image.make_image_background %}
+			{% if featured_image.make_image_background %}
 			<div class='col-sm-6' >
 				<img src="{{ featured_image.image.url }}" class='img-responsive' />
 			</div>
