@@ -25,7 +25,6 @@
 		background-repeat: no-repeat;
 		background-color: #000;
 		background-size: cover;
-		background-position-y: -272px;
 
 	{% endif %}
 }
@@ -46,9 +45,9 @@
 			</p>
 			</div>
 			{% if featured_image.make_image_background %}
-			<div class='col-sm-6' >
-				<img src="{{ featured_image.image.url }}" class='img-responsive' />
-			</div>
+				<div class='col-sm-6' >
+					<img src="{{ featured_image.image.url }}" class='img-responsive' />
+				</div>
 			{% endif %}
 			</div>
 		</div>
