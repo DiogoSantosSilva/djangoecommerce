@@ -2,33 +2,27 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
-
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
-
-#navbar-fixed-top{
+.navbar-static-top {
 	margin-bottom: 0px !important;
 }
-
 .jumbotron {
 	background-color:#5ACDFF;
 	color: #000;
-	position:relative;
-	top: -20px;
-	padding-top:100px;
-	padding-left: 40px;
 	{% if featured_image.make_image_background %}
-		background-image: url("{{ featured_image.image.url }}");
-		background-repeat: no-repeat;
-		background-color: #000;
-		background-size: cover;
-
+	background : url("{{ featured_image.image.url }}");
+	background-repeat: no-repeat;
+	background-color: #000;
+	background-size: cover;
+	background-position-y: -272px;
 	{% endif %}
 }
-{% endblock style %}
+{% endblock %}
 </style>
+
 
 
 {% block jumbotron %}
@@ -43,7 +37,7 @@
 				<a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
 			</p>
 			</div>
-			{% if featured_image.make_image_background %}
+			{% if not featured_image.make_image_background %}
 				<div class='col-sm-6' >
 					<img src="{{ featured_image.image.url }}" class='img-responsive' />
 				</div>
