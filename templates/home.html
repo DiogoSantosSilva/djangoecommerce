@@ -41,8 +41,9 @@
 			<div class='col-sm-12 text-center {% if featured_image.text_right %} pull-right {% endif %}'>
 			<h1>{{ featured_image.product.title }}</h1>
 			<p>
-			<a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
+				<a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
 			</p>
+			<img src="{{ featured_image.image.url }}" class='img-responsive' />
 			</div>
 			{% if not featured_image.make_image_background %}
 			<div class='col-sm-6' >
