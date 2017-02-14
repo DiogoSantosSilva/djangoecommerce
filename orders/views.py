@@ -29,6 +29,7 @@ class OrderDetailView( DetailView):
 
 class OrdersList(LoginRequiredMixin, ListView):
     queryset = Order.objects.all()
+    paginate_by = 12
 
     def get_queryset(self):
         user_check_id = self.request.user.id

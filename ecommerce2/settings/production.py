@@ -35,11 +35,6 @@ SECRET_KEY = '_k&!^if17lw$9pfpeq60^68&@)#%27%hjx3sw(t3)e93mcz6=9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ADMINS = (
-	("Justin", "codingforentrepreneurs@gmail.com"),
-
-	)
-
 ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 #purchasing domain name http://name.com
 
@@ -56,8 +51,6 @@ unlock Captcha to enable Django
 to  send for you:
 https://accounts.google.com/displayunlockcaptcha
 '''
-
-
 
 # Application definition
 

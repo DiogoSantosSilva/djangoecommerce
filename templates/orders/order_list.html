@@ -19,10 +19,25 @@
     {% for object in object_list %}
       <tr>
         <td><a href="{{ object.get_absolute_url }}">View  #{% if object.order_id%}{{ object.order_id}} {% else %}{{object.id}} {% endif %}</a></td>
-        <td>Item count: {{object.cart.items.count }}</td>
+        <td>Item quantity: {{object.cart.items.count }}</td>
       </tr>
     {% endfor %}
   </tbody>
 </table>
 {% endif %}
+
+
+<div class="row">
+  <div class="col-md-12">
+    <nav>
+      <ul class="pagination">
+          {% for page in paginator.page_range %}
+            <li>
+              <a href="?page={{ page }}"> {{ page }}</a>
+            </li>
+          {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
 {% endblock accounts_content%}

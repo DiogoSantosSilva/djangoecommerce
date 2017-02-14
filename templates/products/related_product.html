@@ -5,9 +5,5 @@
           {% include "products/thumbinail.html"  with product=product price="True"%}
       </div>
       {% endif %}
-      {% if forloop.counter|divisibleby:4 %}
-          </div><div class="row">
-            <br />
-      {% endif %}
   {% endfor %}
 </div>

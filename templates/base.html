@@ -41,14 +41,11 @@
       {% block jumbotron %}
 
       {% endblock %}
-      <div class="container">
-        <div class="row">
-          {% block content %}
 
-          {% endblock %}
-        </div>
-      </div> <!-- /container -->
+      {% block content %}
 
+      {% endblock %}
+      
       {% include "javascript.html" %}
 
       <script>

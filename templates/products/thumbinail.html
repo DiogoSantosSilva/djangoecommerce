@@ -71,31 +71,38 @@
 {% endblock %}
 </style>
 
-<div class="item active">
-	<div class="col-item">
-		<h5 class="text-center"><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h5>
-			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive"  /></a>
-		<div class="info">
-				<div class="row">
-					<div id="price" class="col-md-8 col-sm-4">
-						<h4>
-							{% if price == "True" %}
-						 	<strong>{{ product.variation_set.first.get_html_price|safe }}</strong>
-							{% endif %}
-						</h4>
+<div class="container-fluid">
+	<div class="row">
+		 <div class="col-md-10 col-sm-offset-1 thumbnail">
+			 <h5 class="text-center"><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h5>
+	 			<a href="{{ product.get_absolute_url }}"><img src="{{ product.get_image_url }}" class="img-responsive"  /></a>
+	 				<div class="info">
+						<div class="row">
+
+							<div id="price" class="col-md-8 col-sm-4">
+								<h4>
+									{% if price == "True" %}
+									 	<strong>{{ product.variation_set.first.get_html_price|safe }}</strong>
+									{% endif %}
+
+
+							<!--<div class="rating hidden-sm col-md-6">
+								<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+								</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+								</i><i class="fa fa-star"></i>
+							</div>-->
+
+						</div>
+						</div>
+
+					<div class="separator ">
+								<form id='add-form' method="GET" action="{% url 'cart' %}">
+									<input  type="hidden" name="item" value="{{ product.variation_set.first.id }}"/>
+									<a onclick="$(this).closest('form').submit()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+								</form>
 					</div>
-					<!--<div class="rating hidden-sm col-md-6">
-						<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-						</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-						</i><i class="fa fa-star"></i>
-					</div>-->
-				</div>
-			<div class="separator ">
-						<form id='add-form' method="GET" action="{% url 'cart' %}">
-							<input  type="hidden" name="item" value="{{ product.variation_set.first.id }}"/>
-							<a onclick="$(this).closest('form').submit()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
-						</form>
-			</div>
-		</div>
-	</div>
+
+</div>
+</div>
+</div>
 </div>

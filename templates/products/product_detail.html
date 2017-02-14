@@ -11,13 +11,6 @@
             margin: 0px;
             display:None;
           }
-        .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    max-width: 70%;
-    height: auto;
-    padding: 25px;
-    position: relative;
-    left:20%;
 }
     {% endblock style %}
 </style>
@@ -184,6 +177,6 @@
 </div>
 <hr>
 <h3>Related Products</h3>
-{% include "products/related_product.html" %}
+{% include "products/related_product.html" with product=product %}
 <br />
 {% endblock%}
