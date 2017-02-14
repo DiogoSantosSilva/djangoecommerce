@@ -45,7 +45,7 @@
 			</div>
 			{% if not featured_image.make_image_background %}
 				<div class='col-sm-6' >
-					<img src="{{ featured_image.image.url }}" class='img-responsive' />
+					<img src="{{ featured_image.product.get_absolute_url }}" class='img-responsive' />
 				</div>
 			{% endif %}
 			</div>
