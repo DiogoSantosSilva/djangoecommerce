@@ -19,6 +19,21 @@ DEBUG = False
 ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 #purchasing domain name http://name.com
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'panggolim@gmail.com'
+EMAIL_HOST_PASSWORD = 'Di728560@@'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_DEBUG = False
+
+'''
+If using gmail, you will need to
+unlock Captcha to enable Django
+to  send for you:
+https://accounts.google.com/displayunlockcaptcha
+'''
+
+
 
 INSTALLED_APPS = (
     #django app
