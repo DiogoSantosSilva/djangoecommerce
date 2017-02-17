@@ -56,6 +56,7 @@ INSTALLED_APPS = (
 )
 
 
+WSGI_APPLICATION = 'ecommerce2.wsgi.application'
 # Database
 	# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -65,20 +66,10 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'redacted',
         'PASSWORD': 'redacted',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-)
-
 
 # add this
 db_from_env = dj_database_url.config()
