@@ -1,11 +1,14 @@
 from .base import *
 
-try:
-	from .local import *
-except:
-	pass
-
-try:
-	from .production import *
-except:
+if base.DEBUG:
+	try:
+		from .local import *
+	except:
+		pass
+elif not base.DEBUG:
+	try:
+		from .production import *
+	except:
+		pass
+else:
 	pass
