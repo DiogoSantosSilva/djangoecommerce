@@ -27,11 +27,14 @@ from .db_password import DBPASS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "panggolim",
-        'USER': "diogo",
-        'PASSWORD': DBPASS,
+        'NAME': 'django',
+        'USER': 'redacted',
+        'PASSWORD': 'redacted',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
-}
+
 # add this
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
