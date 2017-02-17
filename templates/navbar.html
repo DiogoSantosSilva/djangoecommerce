@@ -16,16 +16,23 @@
    #login-dp .form-group {
        margin-bottom: 10px;
    }
-   .navb{
-     color:black;
+
+    .navbar .badge{
+      color:#008cba;
+      background-color: #fff;
+      font-weight: bold;
+    }
+
+   .navbar{
+         margin-bottom: 0px;
    }
 
    {% endblock style %}
    </style>
 
-   <!-- Static navbar -->
-    <nav id="navb" class="navbar navbar-inverse  navbar-static-top">
-      <div class="container">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -33,35 +40,50 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+          <a class="navbar-brand" href="#">Project name</a>
         </div>
 
-
-        <form class="navbar-form navbar-left" method="GET" role="search" action='{% url "products" %}'>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" name="q" value='{{ request.GET.q }}'>
-          </div>
-     <!--  <button type="submit" class="btn btn-default">Submit</button> -->
-        </form>
-
         <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-lg " aria-hidden="true"></i> <span id="cart-count-badge" class="badge" >{{request.session.cart_item_count}}</span >
-                  </a>
-                </li>
-                  {% if request.user.is_authenticated %}
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" role="button">{{user}}</a>
-                      <ul class="dropdown-menu">
-                          <li><a href="{% url 'sellers:dashboard'%}">Account</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="{% url 'auth_logout' %}">Logout</a></li>
-                  {% else %}
-                    <li><a href="{% url 'registration_register' %}">Register</a></li>
-                  {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+          <ul class="nav navbar-nav">
+            <li ><a href="{% url 'home' %}">Home</a></li>
+            <form class="navbar-form navbar-left hidden-sm hidden-xs" method="GET" role="search" action='{% url "products" %}'>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search" name="q" value='{{ request.GET.q }}'>
+                </div>
+           <!--  <button type="submit" class="btn btn-default">Submit</button> -->
+            </form>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {% for category in categories %}
+                  <li><a href="#">{{ category.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
 
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-lg " aria-hidden="true"></i> <span id="cart-count-badge" class="badge" >{{request.session.cart_item_count}}</span >
+              </a>
+            </li>
+            {% if request.user.is_authenticated %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'sellers:dashboard'%}"><i class="fa fa-bars" aria-hidden="true"></i> Account</a></li>
+                    <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+                </ul>
+              </li>
+            {% else %}
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'registration_register' %}">Register</a></li>
+                    <li><a href="{% url 'registration_register' %}">Vendor</a></li>
+                  </ul>
+                </li>
+                {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>
                     <ul id="login-dp" class="dropdown-menu" role="menu">
@@ -78,10 +100,9 @@
                       <p class="text-center"><a href='{% url "auth_password_reset" %}'>Forgot password ? </a></p>
                     </ul>
                   </li>
-
                 {% endif %}
-              </ul>
-               {% endif %}
+            {% endif %}
+          </ul>
         </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    </div><!--/.container-fluid -->
+  </nav>

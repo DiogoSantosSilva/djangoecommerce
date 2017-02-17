@@ -6,7 +6,7 @@ from products.models import Variation
 
 # Create your models here.
 
-
+# cart item will hold all items, each item inside the cartitem has the same cartitem id
 class CartItem(models.Model):
     cart = models.ForeignKey("Cart")
     item = models.ForeignKey(Variation)
@@ -41,6 +41,7 @@ ORDER_STATUS = (
     ("completed", "Completed")
 )
 
+#cart will hold the cartitem and the values for the order
 class Cart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
     status = models.CharField(max_length=120, choices=ORDER_STATUS, default='created')

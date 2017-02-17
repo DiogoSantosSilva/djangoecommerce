@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from .forms import ContactForm, SignUpForm
 from .models import SignUp
-from products.models import ProductFeatured, Product
+from products.models import ProductFeatured, Product, Category
 
 # Create your views here.
 def home(request):
@@ -12,6 +12,7 @@ def home(request):
 	featured_image = ProductFeatured.objects.filter(active=True).order_by("?").first()
 	products = Product.objects.all().order_by("?")[:8]
 	products2 = Product.objects.all().order_by("?")[:4]
+	categories = Category.objects.all()
 
 	form = SignUpForm(request.POST or None)
 	context = {
@@ -20,6 +21,7 @@ def home(request):
 		"featured_image": featured_image,
 		"products":products,
 		"products2": products2,
+		"categories": categories,
 	}
 	if form.is_valid():
 		#form.save()

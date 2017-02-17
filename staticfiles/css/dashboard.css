@@ -1,15 +1,177 @@
+html, body{
+    font-family:"open sans" ,"Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#676a6c;
+    height: 100%;
+}
+
+.display-table{
+  display: table;
+  padding:0px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.display-table-row{
+  display:table-row;
+  height: 100%;
+}
+
+.display-table-cell{
+  display: table-cell;
+  float:none;
+  height:  100%;
+}
+
+.valign-top{
+  vertical-align:top;
+}
+
 #side-menu{
   padding: 0px;
   background-color: #2f4050;
 }
 
 #side-menu h1{
-  color:#1f3647;
+  color:#000000;
   text-align:center;
   margin:10px 0px;
   font-size:25px
 }
 
-.box{
-  border: 1px red dotted;
+#side-menu ul{
+  list-style: none;
+  margin:0px;
+  padding: 0px;
+}
+
+#side-menu li{
+  list-style: none;
+}
+
+#side-menu a {
+  padding: 12px 20px;
+  text-decoration:none;
+  font-weight:bold;
+  display:block;
+  color: #9fb1c2;
+}
+
+#side-menu a:hover{
+  background-color: #293846;
+  color:#fff;
+  display: block;
+}
+
+
+#side-menu .active a{
+  color: :#fff;
+  background-color: #293846;
+
+}
+
+#side-menu h1{
+  color: #fff;
+}
+
+#side-menu .settings-btn{
+  background-color:#1ab394;
+}
+
+#side-menu i{
+  margin-right: 6px;
+}
+
+#side-menu .settings-btn a{
+  color: #fff;
+}
+
+#side-menu .settings-btn a:hover{
+  background-color:#1ab394;
+}
+
+#side-menu .collapseable li {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+#side-menu .collapseable a{
+  color: #9fb1c2;
+  font-size: 12px;
+  padding: 0px 10px;
+  text-decoration:none;
+  display: block;
+}
+#side-menu .collapseable a:hover{
+  color:#fff;
+}
+
+#side-menu .collapseable{
+  border-left: 4px solid #1ab394;
+  background-color: #293846;
+}
+
+#side-menu .link > ul > li{
+  padding-bottom: 10px;
+}
+
+#nav-header{
+  background-color: #fff;
+  border-bottom: 1px solid #e7eaec;
+}
+
+#nav-header #header-search-field{
+  padding-top: 17px;
+  vertical-align: center;
+  border:none;
+  width: 300px;
+  outline: none;
+}
+
+#nav-header ul{
+  margin: 0px;
+  padding:0px;
+  list-style:none;
+  color:#676a6c;
+}
+
+#nav-header ul li{
+  float:left;
+  margin-left: 15px;
+  padding: 17px 0px;
+}
+
+#nav-header ul a{
+  text-decoration: none;
+}
+
+#nav-header #welcome{
+  margin-right: 30px;
+}
+
+#nav-header ul .label{
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -5px;
+}
+
+#nav-header .fixed-width{
+  width: 35px;
+}
+
+#admin-footer{
+  position: absolute;
+  width: 100%;
+  bottom:0px;
+  background-color: #fff;
+  padding: 10px;
+  font-size:12px;
+  color:#676a6c;
+}
+
+@media screen and (max-width: 640px) {
+	table {
+		overflow-x: auto;
+		display: block;
+	}
 }

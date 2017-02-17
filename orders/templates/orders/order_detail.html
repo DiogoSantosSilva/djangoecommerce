@@ -1,0 +1,8 @@
+{% extends "dashboard/sellers.html" %}
+
+
+  {% block accounts_content  %}
+    <div class="col-md-8 col-md-offset-2">
+      {% include "orders/order_summary_short.html" with order=order%}
+    </div>
+  {% endblock accounts_content %}

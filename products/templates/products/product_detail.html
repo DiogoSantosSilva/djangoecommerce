@@ -1,0 +1,173 @@
+{% extends "base.html"%}
+
+<script>
+{% block jquery %}
+
+  function setPrice(){
+    var price = $(".variation_select option:selected").attr("data-price")
+
+    var sale_price = $(".variation_select option:selected").attr("data-sale-price")
+    if (sale_price != "" && sale_price != "None" && sale_price != null)
+    {
+      $("#price").html("<h3>" + sale_price + " <small class='og_price'> " +  price  + " </small></h3>");
+    }else{
+      $("#price").html(price);
+    }
+
+  }
+  setPrice()
+
+
+
+  $(".variation_select").change(function(){
+    setPrice()
+    // var img = $(".variation_select option:selected").attr("data-img")
+    // $("img").attr("src", img);
+
+  });
+
+  $("#submit-btn").click(function(event){
+    event.preventDefault();
+    var formData = $("#add-form").serialize();
+    console.log(formData);
+    $.ajax({
+        type:"GET",
+        url:"{% url 'cart' %}",
+        data:formData,
+        success:function (data) {
+          	showFlashMessage(data.flash_message)
+            updateCartItemCount()
+
+        },
+        error: function (response, error) {
+            console.log(response)
+            console.log(error)
+        }
+    })
+
+  });
+
+
+{% endblock jquery %}
+</script>
+
+{% block content%}
+
+<div class="container">
+		<div class="item-container">
+			<div class="container">
+      <div class="row">
+
+          <!-- image  -->
+          <div class="col-sm-6" id="image-detail">
+            {% if object.get_image_url %}
+                <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
+            {% endif %}
+          </div>
+          <!-- image  -->
+
+        <div class="col-md-4">
+
+            <!--short description  -->
+  					<h1>{{object.title}}</h1>
+            <p>{{object.description|truncatewords:10 }}</p>
+
+
+            <!-- #share on facebook or linkedin -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_url}}">
+              <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+            </a>
+            <!-- #share on facebook or linkedin -->
+
+            <hr>
+
+            <!--form to send the quantity to cart  -->
+  					<div class="product-price">
+              <form id='add-form' method="GET" action="{% url 'cart' %}">
+                {% if product.variation_set.count > 1 %}
+
+                  <h3 id="price">${{ product.variation_set.first.price }}</h3>
+                  <select name='item' class="form-control variation_select">
+                    {% for vari_prod in product.variation_set.all %}
+                      <option  data-sale-price="{{vari_prod.sale_price}}" data-price="{{vari_prod.price}}" value="{{vari_prod.id}}">
+                        {{vari_prod}}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </br>
+                {% else %}
+
+                  <input  type="hidden" name="item" value="{{ product.variation_set.first.id }}"/>
+                  <h3 id="price">$
+                    {% if product.variation_set.first.sale_price %}
+                      {{ product.variation_set.first.sale_price }}
+                      <small class="og_price">{{ product.variation_set.first.price }}</small>
+                    {% else %}
+                      {{ product.variation_set.first.price }}
+                    {% endif %}
+                  </h3>
+
+                {% endif%}
+
+                  <input  class="form-control input-sm" type="number" name="qty" value="1"/>
+                  <br />
+
+
+
+
+                  {% if object.variation_set.first.inventory >= 10  %}
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                  {% else %}
+                    <span>Status: </span><span class="text-success"><strong>Out of Stock</strong></span>
+                  {% endif %}
+                  <hr>
+                  <button id='submit-btn' type="button" class="btn btn-success" >Add to cart</button>
+              </form>
+              <!--form to send the quantity to cart  -->
+  				  </div>
+  			</div>
+			</div>
+      <br />
+		</div>
+
+		<div class="container-fluid">
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+						<li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+						<li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
+
+					</ul>
+
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">
+							<section class="container product-info">
+							<!-- Product descrition -->
+								<h3><strong>{{object.title}}</h3></strong>
+								<p>{{object.description}}</p>
+                <!-- Product descrition -->
+							</section>
+						</div>
+
+					  <div class="tab-pane fade" id="service-two">
+						  <section class="container">
+
+						  </section>
+					  </div>
+
+					  <div class="tab-pane fade" id="service-three">
+
+					  </div>
+				</div>
+			</div>
+		</div>
+
+
+  <hr>
+  <h3>Related Products</h3>
+  {% include "products/related_product.html" with product=product %}
+  <br />
+</div>
+
+{% endblock%}

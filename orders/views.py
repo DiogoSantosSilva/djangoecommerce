@@ -27,6 +27,7 @@ class OrderDetailView( DetailView):
         else:
             raise Http404
 
+
 class OrdersList(LoginRequiredMixin, ListView):
     queryset = Order.objects.all()
     paginate_by = 12

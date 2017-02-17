@@ -204,6 +204,7 @@ class CheckOutFinalView(CartOrderMixin, View):
         order = self.get_order()
         order_total = order.order_total
         nonce =  request.POST.get("payment_method_nonce")
+        flash_message=''
         if nonce:
             result = braintree.Transaction.sale({
                 "amount": order_total,
@@ -216,10 +217,19 @@ class CheckOutFinalView(CartOrderMixin, View):
             }
             })
             if result.is_success:
+                flash_message = messages.success(request, "Thank you for your order.")
                 order.mark_completed( order_id=result.transaction.id)
-                messages.success(request, "Thank you for your order.")
+
                 del request.session["cart_id"]
                 del request.session["order_id"]
+
+                cartitem = CartItem.objects.filter(cart=order.cart)
+                for obj in cartitem:
+                    for item in order.cart.items.all():
+                        if item.id == obj.item.id:
+                            item.inventory  -= obj.quantity
+                            item.save()
+
             else:
                 messages.success(request, "%s" %(result.message))
         return redirect("order_detail", pk=order.pk)

@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
-from carts.models import Cart
+from carts.models import Cart, CartItem
 from products.models import Variation
 
 # Create your models here.
@@ -107,20 +107,9 @@ class Order(models.Model):
         self.save()
 
 
-
-
 def order_pre_save(sender, instance, *args, **kwargs):
     shipping_total_price = instance.shipping_total_price
     cart_total = instance.cart.total
     order_total = round(Decimal(shipping_total_price) +  Decimal(cart_total ), 2)
     instance.order_total = order_total
 pre_save.connect(order_pre_save, sender=Order)
-
-# class Order(models.Model):
-#     cart
-#     user checkout required
-#     billing address
-#     shipping address
-#     shipping total price
-#     order total
-#     custom order id

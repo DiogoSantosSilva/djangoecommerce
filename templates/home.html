@@ -6,25 +6,23 @@
 
 <style>
 {% block style %}
-.navbar-static-top {
-	margin-bottom: 0px !important;
-}
+
 .jumbotron {
 	background-color:#5ACDFF;
 	color: #000;
-	height: 250px;
+	height: 350px;
+	margin-top: -22px;
 	{% if featured_image.make_image_background %}
 	background-image:url('{{ featured_image.image.url }}');
 	background-repeat: no-repeat;
 	background-color: #000;
 	background-size: cover;
-	background-position-y: -80px;
 	{% endif %}
 }
 
 .jumbotron a {
 	float:left;
-	margin: 100px 0 0 0;
+	margin: 180px 0 0 0;
 }
 {% endblock %}
 </style>
@@ -72,6 +70,7 @@
 
 
 {% block content %}
+  <div class="container">
 	<h3>Recommended Products</h3>
 	<hr />
 	{% include "products/products.html" with object_list=products  %}
@@ -79,4 +78,5 @@
 	<h3>Featured Products</h3>
 	<hr />
 	{% include "products/products.html" with object_list=products2   %}
+</div>
 {% endblock %}

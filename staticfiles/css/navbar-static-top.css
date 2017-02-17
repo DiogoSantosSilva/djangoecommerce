@@ -1,3 +1,6 @@
-.navbar-static-top {
-  margin-bottom: 19px;
+  
+.badge {
+    color: #008cba;
+    font-weight: bold;
+    background-color:#fff;
 }

@@ -174,9 +174,8 @@ def product_detail_view_func(request, id):
 		raise Http404
 	except:
 		raise Http404
-
 	template = "products/product_detail.html"
 	context = {
-		"object": product_instance
+		"object": product_instance,
 	}
 	return render(request, template, context)
