@@ -1,5 +1,6 @@
 
 
+
 .text-align-center {
 	text-align: center;
 }
@@ -13,6 +14,18 @@
   margin-left: 15px;
   bottom: 30px;
 }
+
+
+.container-alert-flash {
+	position: absolute;
+    top: 10px;
+    z-index: 50000;
+    width: 100%;
+    right: 0%;
+    margin: 0px;
+    display:none;
+}
+
 
 /* products thumbnail style */
 .col-item
@@ -85,7 +98,7 @@
 
 
 /* product detail style */
-#img-detail{
+#image-detail{
   margin-top: 30px;
 }
 /* finish product detail style */
