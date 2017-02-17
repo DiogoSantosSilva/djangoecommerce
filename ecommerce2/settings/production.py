@@ -77,7 +77,7 @@ USE_TZ = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
+        'NAME': os.environ.get('OPENSHIFT_APP_NAME', 'A sensible default'),
         'USER': 'redacted',
         'PASSWORD': 'redacted',
         'HOST': '127.0.0.1',
