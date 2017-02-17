@@ -95,13 +95,10 @@ WSGI_APPLICATION = 'ecommerce2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'redacted',
-        'PASSWORD': 'redacted',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # add this
 db_from_env = dj_database_url.config()
