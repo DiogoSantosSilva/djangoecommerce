@@ -1,0 +1,49 @@
+<style >
+  {% block style %}
+  #navbar-category{
+    margin-top: -30px
+  }
+
+  ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    overflow:hidden;
+  }
+  ul li{
+    float:left;
+  }
+
+  li a{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+  }
+
+
+    li a:hover{
+      text-decoration:none;
+    }
+
+    li a:link{
+      text-decoration:none;
+    }
+
+  {% endblock %}
+</style>
+
+
+<nav class="navbar navbar-default  " id="navbar-category">
+<div class="container-fluid">
+        <ul>
+          {% for category in categories %}
+            <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </a>
+  </div>
+</div>
+</nav>
