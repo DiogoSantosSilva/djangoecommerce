@@ -1,1 +1,1 @@
-web: gunicorn --env DJANGO_SETTINGS_MODULE=ecommerce2.settings ecommerce2.wsgi
+web: gunicorn --bind 0.0.0.0:${PORT:-8000}  ecommerce2.wsgi
