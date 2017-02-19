@@ -2,10 +2,14 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
+
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
 
 .jumbotron {
 	background-color:#5ACDFF;
@@ -24,7 +28,7 @@
 	float:left;
 	margin: 180px 0 0 0;
 }
-{% endblock %}
+{% endblock style %}
 </style>
 
 
@@ -32,46 +36,39 @@
 {% block jumbotron %}
 
 	{% if featured_image %}
-	<div class="jumbotron" style="	{% if featured_image.make_image_background %}
-		background-image:url('{{ featured_image.image.url }}'); {%endif%}">
-	 <div class="container">
-		<div class="row">
-			<div class='col-sm-12 text-center {% if featured_image.text_right %} pull-right {% endif %}'>
-			<!--<h1>{{ featured_image.product.title }}</h1>-->
-			<p>
-				<a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
-			</p>
-			</div>
-			{% if not featured_image.make_image_background %}
-				<div class='col-sm-6' >
-					<img src="{{ featured_image.product.get_absolute_url }}" class='img-responsive' />
-				</div>
-			{% endif %}
-			</div>
-		</div>
-	</div>
-	{% else %}
-	<div class="jumbotron">
-	<div class="container">
-	<div class="row">
-		<div class='col-sm-6'>
-		<h1>Welcome</h1>
-		<p></p>
-		</div>
-		<div class='col-sm-6' >
+		<div class="jumbotron" style="	{% if featured_image.make_image_background %} background-image:url('{{ featured_image.image.url }}'); {%endif%}">
+	     <div class="container">
+		       <div class="row">
+			         <div class='col-sm-12 text-center {% if featured_image.text_right %} pull-right {% endif %}'>
+							     <p>
+								     <a class="btn btn-lg btn-primary" href="{{ featured_image.product.get_absolute_url }}" role="button">More Details </a>
+							     </p>
+							</div>
+							{% if not featured_image.make_image_background %}
+							    <div class='col-sm-6' >
+								 	    <img src="{{ featured_image.product.get_absolute_url }}" class='img-responsive' />
+								    </div>
+							{% endif %}
+				  </div>
+		   </div>
+	  </div>
 
-		</div>
-		</div>
-	</div>
-	</div>
+	{% else %}
+			<div class="jumbotron">
+			    <div class="container">
+			        <div class="row">
+				          <div class='col-sm-6'>
+				              <h1>Welcome</h1>
+				                  <p></p>
+				          </div>
+				      </div>
+			     </div>
+			</div>
 
 	{% endif %}
 
-{% endblock %}
+{% endblock jumbotron %}
 
-{% block navbar-category %}
-	{% include "navbar-category.html" %}
-{% endblock %}
 
 {% block content %}
   <div class="container">
@@ -83,4 +80,4 @@
 	<hr />
 	{% include "products/products.html" with object_list=products2   %}
 </div>
-{% endblock %}
+{% endblock content %}
