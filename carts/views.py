@@ -36,7 +36,7 @@ class ItemCountView(View):
             else:
                 cart = Cart.objects.get(id=cart_id)
                 count = cart.items.count()
-                request.session["cart_item_count"] = count
+                self.request.session["cart_item_count"] = count
             return JsonResponse({"count":count})
         else:
             raise Http404
@@ -62,13 +62,13 @@ class CartView(SingleObjectMixin, View):
 
     def get(self, request, *args, **kwargs):
         cart = self.get_object()
-        item_id = request.GET.get("item")
-        delete_item = request.GET.get("delete", False)
+        item_id = self.request.GET.get("item")
+        delete_item = self.request.GET.get("delete", False)
         flash_message = ""
         item_added = False
         if item_id:
             item_instance = get_object_or_404(Variation, id=item_id)
-            qty = request.GET.get("qty", 1)
+            qty = self.request.GET.get("qty", 1)
             try:
                 if int(qty) < 1:
                     delete_item = True
@@ -173,7 +173,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         if form.is_valid():
             email = form.cleaned_data.get("email")
             user_checkout, created = UserCheckout.objects.get_or_create(email=email)
-            request.session["user_checkout_id"] = user_checkout.id
+            self.request.session["user_checkout_id"] = user_checkout.id
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
@@ -203,7 +203,7 @@ class CheckOutFinalView(CartOrderMixin, View):
     def post(self, request, *args, **kwargs):
         order = self.get_order()
         order_total = order.order_total
-        nonce =  request.POST.get("payment_method_nonce")
+        nonce =  self.request.POST.get("payment_method_nonce")
         if nonce:
             result = braintree.Transaction.sale({
                 "amount": order_total,
@@ -218,8 +218,8 @@ class CheckOutFinalView(CartOrderMixin, View):
             if result.is_success:
                 order.mark_completed( order_id=result.transaction.id)
 
-                del request.session["cart_id"]
-                del request.session["order_id"]
+                del self.request.session["cart_id"]
+                del self.request.session["order_id"]
 
                 cartitem = CartItem.objects.filter(cart=order.cart)
                 for obj in cartitem:
