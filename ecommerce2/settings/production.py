@@ -25,6 +25,7 @@ EMAIL_HOST_USER = 'panggolim@gmail.com'
 EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 
 '''
 If using gmail, you will need to
