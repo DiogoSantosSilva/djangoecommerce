@@ -39,6 +39,7 @@ https://accounts.google.com/displayunlockcaptcha
 INSTALLED_APPS = (
     #django app
     'django.contrib.admin',
+        'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -47,7 +48,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party apps
     'crispy_forms',
-    'registration',
     'django_filters',
     'storages',
      #my apps
