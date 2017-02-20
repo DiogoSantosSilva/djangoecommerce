@@ -102,9 +102,7 @@ DATABASES = {
 }
 
 # add this
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
+db_from_env = dj_database_urlthe server responded with a status of 500 (INTERNAL SERVER ERROR)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -126,7 +124,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login/'
+
 #BRAINTREE PAYMENTS DETAILS
 
 BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
