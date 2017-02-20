@@ -102,7 +102,10 @@ DATABASES = {
 }
 
 # add this
-db_from_env = dj_database_urlthe server responded with a status of 500 (INTERNAL SERVER ERROR)
+db_from_venv = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_venv)
+
+SECURE_PROXY_SSL_HEADER  =  ('HTTP_X_FORWARDED_PROTO', 'https')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
