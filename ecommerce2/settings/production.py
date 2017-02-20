@@ -69,7 +69,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URL = 'ecommerce2.urls'
+ROOT_URLCONF  = 'ecommerce2.urls'
 
 TEMPLATES = [
     {
