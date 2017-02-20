@@ -6,9 +6,8 @@ dj-static==0.0.6
 Django==1.8.4
 django-crispy-forms==1.6.1
 django-filter==0.11.0
-django-registration-redux==1.2
+-e git://github.com/macropin/django-registration.git#egg=django-registration==1.2 
 django-storages==1.5.2
-django-storages-redux==1.4
 gunicorn==19.6.0
 packaging==16.8
 Pillow==3.4.2
