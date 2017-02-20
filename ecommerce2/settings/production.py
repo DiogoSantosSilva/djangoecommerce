@@ -20,12 +20,12 @@ DEBUG = False
 ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 #purchasing domain name http://name.com
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'panggolim@gmail.com'
 EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = True
 
 '''
 If using gmail, you will need to
@@ -40,7 +40,7 @@ https://accounts.google.com/displayunlockcaptcha
 INSTALLED_APPS = (
     #django app
     'django.contrib.admin',
-        'registration',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
