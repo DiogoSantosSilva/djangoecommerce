@@ -65,22 +65,24 @@
              <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
              <ul class="dropdown-menu">
                  <li><a href="{% url 'sellers:dashboard'%}"><i class="fa fa-bars" aria-hidden="true"></i> Account</a></li>
-                 <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+                 <li>
+                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+                  </li>
              </ul>
            </li>
          {% else %}
            <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="{% url 'registration_register' %}">Register</a></li>
-                 <li><a href="{% url 'registration_register' %}">Vendor</a></li>
+                 <li><a href="{% url 'account_signup' %}">Sign up</a></li>
+                 <li><a href="{% url 'account_signup' %}">Vendor</a></li>
                </ul>
              </li>
              {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
                <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>
                  <ul id="login-dp" class="dropdown-menu" role="menu">
-                   <form class='navbar-form ' role="form" method='POST' action='{% url "auth_login" %}'>{% csrf_token %}
+                   <form class='navbar-form ' role="form" method='POST' action='{% url "account_login" %}'>{% csrf_token %}
                      <div class='form-group'>
                        <input type='text' class='form-control' name='username' placeholder='Username' />
                      </div>
@@ -90,7 +92,7 @@
                      </div>
                      <button type='submit' class='btn btn-primary btn-block '>Login</button>
                    </form>
-                   <p class="text-center"><a href='{% url "auth_password_reset" %}'>Forgot password ? </a></p>
+                   <p class="text-center"><a href='{% url "account_reset_password" %}'>Forgot password ? </a></p>
                  </ul>
                </li>
              {% endif %}
