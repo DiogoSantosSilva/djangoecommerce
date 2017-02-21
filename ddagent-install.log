@@ -1,0 +1,70 @@
+[34m
+* Installing YUM sources for Datadog
+[0m
+[34m* Installing the Datadog Agent package
+[0m
+Redirecting to '/usr/bin/dnf -y --disablerepo=* --enablerepo=datadog install datadog-agent' (see 'man yum2dnf')
+
+Last metadata expiration check: 0:00:03 ago on Mon Feb 20 22:23:56 2017.
+Dependencies resolved.
+================================================================================
+ Package               Arch           Version             Repository       Size
+================================================================================
+Installing:
+ datadog-agent         x86_64         1:5.11.2-1          datadog          53 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 53 M
+Installed size: 169 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           737 kB/s |  53 MB     01:13     
+warning: /var/cache/dnf/datadog-64b2a4d6ab8b77d7/packages/datadog-agent-5.11.2-1.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 4172a230: NOKEY
+Importing GPG key 0x4172A230:
+ Userid     : "Datadog Packages <package@datadoghq.com>"
+ Fingerprint: 60A3 89A4 4A0C 32BA E3C0 3F0B 069B 56F5 4172 A230
+ From       : https://yum.datadoghq.com/DATADOG_RPM_KEY.public
+Key imported successfully
+Importing GPG key 0xE09422B3:
+ Userid     : "Datadog, Inc <package@datadoghq.com>"
+ Fingerprint: A4C0 B90D 7443 CF6E 4E8A A341 F106 8E14 E094 22B3
+ From       : https://yum.datadoghq.com/DATADOG_RPM_KEY_E09422B3.public
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+find: ‘/opt/datadog-agent/agent’: No such file or directory
+  Installing  : datadog-agent-1:5.11.2-1.x86_64                             1/1 
+Restarting datadog-agent (via systemctl):  Job for datadog-agent.service failed because the control process exited with error code.
+See "systemctl status datadog-agent.service" and "journalctl -xe" for details.
+[FAILED]
+  Verifying   : datadog-agent-1:5.11.2-1.x86_64                             1/1 
+
+Installed:
+  datadog-agent.x86_64 1:5.11.2-1                                               
+
+Complete!
+[34m
+* Adding your API key to the Agent configuration: /etc/dd-agent/datadog.conf
+[0m
+[34m* Starting the Agent...
+[0m
+Restarting datadog-agent (via systemctl):  Job for datadog-agent.service failed because the control process exited with error code.
+See "systemctl status datadog-agent.service" and "journalctl -xe" for details.
+[FAILED]
+[31m
+It looks like you hit an issue when trying to install the Agent.
+
+Troubleshooting and basic usage information for the Agent are available at:
+
+    http://docs.datadoghq.com/guides/basic_agent_usage/
+
+If you're still having problems, please send an email to support@datadoghq.com
+with the contents of ddagent-install.log and we'll do our very best to help you
+solve your problem.
+[0m
