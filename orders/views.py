@@ -34,7 +34,9 @@ class OrdersList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         user_check_id = self.request.user.id
-        return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
+        user_checkout = UserCheckout.objects.get(id=user_check_id)
+        return super(OrderList, self).get_queryset().filter(user=user_checkout)
+        #return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
 
 # Create your views here.
 class UserAdressCreateView(CreateView):

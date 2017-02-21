@@ -51,6 +51,7 @@ class CartView(SingleObjectMixin, View):
         cart_id = self.request.session.get("cart_id")
         if cart_id == None:
             cart = Cart()
+            cart.tax_percentage = 0.075
             cart.save()
             cart_id = cart.id
             self.request.session["cart_id"] = cart_id
@@ -88,7 +89,7 @@ class CartView(SingleObjectMixin, View):
                 cart_item.quantity = qty
                 cart_item.save()
             if not request.is_ajax():
-                return HttpResponseRedirect(reverse('cart'))
+                return HttpResponseRedirect(reverse("cart"))
 
         if request.is_ajax():
             try:
@@ -153,7 +154,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
             self.request.session["user_checkout_id"] = user_checkout.id
         elif not self.request.user.is_authenticated() and user_check_id == None:
             context["login_form"] = AuthenticationForm()
-            context["next_url"] = self.request.build_absolute_uri(None)
+            context["next_url"] = self.request.build_absolute_uri()
         else:
             pass
         if user_check_id != None:
@@ -193,9 +194,6 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
             new_order.user = user_checkout
             new_order.save()
         return get_data
-
-    def get_success_url(self):
-        return reverse("checkout")
 
 
 class CheckOutFinalView(CartOrderMixin, View):

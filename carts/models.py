@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.db import models
+from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save, post_save, post_delete
 from products.models import Variation
 
@@ -61,15 +62,15 @@ class Cart(models.Model):
         items = self.cartitem_set.all()
         for item in items:
             subtotal += item.line_item_total
-        self.subtotal = subtotal
+        self.subtotal = "%.2f" %(subtotal)
         self.save()
-        pass
 
 def do_tax_and_total_receiver(sender, instance, *args, **kwargs):
     subtotal = Decimal(instance.subtotal)
     tax_total = round(subtotal * Decimal(instance.tax_percentage), 2)
     total = round(subtotal + Decimal(tax_total), 2)
-    instance.tax_total = tax_total
-    instance.total = total
+    instance.tax_total = "%.2f" %(tax_total)
+    instance.total = "%.2f" %(total)
+    #instance.save()
 
 pre_save.connect(do_tax_and_total_receiver, sender=Cart)
