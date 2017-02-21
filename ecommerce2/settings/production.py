@@ -1,11 +1,4 @@
-try:
-    from base import *
-except ImportError:
-    pass
-
-from django.conf import settings
-
-
+from ecommerce2.settings.base import *
 import os
 import dj_database_url
 
@@ -16,6 +9,12 @@ SECRET_KEY = '_k&!^if17lw$9pfpeq60^68&@)#%27%hjx3sw(t3)e93mcz6=9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+
+ADMINS = (
+	("diogo", "diogo.ds62@gmail.com"),
+
+	)
 
 ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 #purchasing domain name http://name.com

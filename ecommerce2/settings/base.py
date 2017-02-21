@@ -21,7 +21,6 @@ EMAIL_HOST_USER = 'panggolim@gmail.com'
 EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_DEBUG = False
 
 '''
 If using gmail, you will need to
@@ -42,14 +41,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #third party apps
     'crispy_forms',
-    'django_filters',
     'registration',
     #my apps
     'newsletter',
-    'products',
-    'carts',
-    'orders',
-    'sellers',
 )
 
 

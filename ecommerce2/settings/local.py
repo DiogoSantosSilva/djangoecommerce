@@ -1,4 +1,4 @@
-from base import *
+from ecommerce2.settings.base import *
 
 """
 Django settings for ecommerce2 project.
