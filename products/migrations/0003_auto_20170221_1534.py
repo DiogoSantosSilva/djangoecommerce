@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.utils.timezone import utc
+import datetime
 
 
 class Migration(migrations.Migration):
@@ -14,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SubCategory',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=120)),
                 ('slug', models.SlugField(unique=True)),
                 ('active', models.BooleanField(default=True)),
@@ -25,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='Subcategory',
-            field=models.ForeignKey(to='products.SubCategory', related_name='default_subcategory', default=1),
+            field=models.ForeignKey(default=datetime.datetime(2017, 2, 21, 15, 34, 9, 216792, tzinfo=utc), related_name='default_subcategory', to='products.SubCategory'),
             preserve_default=False,
         ),
     ]
