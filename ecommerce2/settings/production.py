@@ -1,7 +1,6 @@
 from ecommerce2.settings.base import *
 import os
 import dj_database_url
-from decauple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
