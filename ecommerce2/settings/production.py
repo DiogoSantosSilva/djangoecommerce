@@ -5,7 +5,7 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = '_k&!^if17lw$9pfpeq60^68&@)#%27%hjx3sw(t3)e93mcz6=9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -19,9 +19,10 @@ ADMINS = (
 ALLOWED_HOSTS = ['multi-ecommerce.herokuapp.com']
 #purchasing domain name http://name.com
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'EMAIL_HOST'
-EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
+EMAIL_HOST_USER = 'panggolim@gmail.com'
+EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -135,9 +136,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 #BRAINTREE PAYMENTS DETAILS
 
-BRAINTREE_PUBLIC = 'BRAINTREE_PUBLIC'
-BRAINTREE_PRIVATE = 'BRAINTREE_PRIVATE'
-BRAINTREE_MERCHAND_ID = 'BRAINTREE_MERCHAND_ID'
+BRAINTREE_PUBLIC = "6rhmcym3ppvggbrq"
+BRAINTREE_PRIVATE = "db78285aa54368a5c299ccf62f0f0530"
+BRAINTREE_MERCHAND_ID = "kkj4x5y4nq5msn5r"
 BRAINTREE_ENVIRONMENT = "sandbox"
 
 
@@ -146,8 +147,8 @@ STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
 
 
-AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
-AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
+AWS_ACCESS_KEY_ID = "AKIAJBXGEKRT5MG4ML2A"
+AWS_SECRET_ACCESS_KEY = "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"
 
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
