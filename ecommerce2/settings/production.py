@@ -50,7 +50,7 @@ INSTALLED_APPS = (
 	'allauth',
     'allauth.account',
     'allauth.socialaccount',
-	'smart_selects'
+	'smart_selects',
     'django_filters',
     'storages',
      #my apps
