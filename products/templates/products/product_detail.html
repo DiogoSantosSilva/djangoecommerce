@@ -63,6 +63,8 @@
           <div class="col-sm-6" id="image-detail">
             {% if object.get_image_url %}
                 <img id="img" class="img-responsive" src="{{ object.get_image_url }}" />
+            {% else %}
+                <img id="img" class="img-responsive" src="http://placehold.it/1000x1000" alt="" />            
             {% endif %}
           </div>
           <!-- image  -->

@@ -46,11 +46,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #third party apps
+	'smart_selects',
     'crispy_forms',
 	'allauth',
     'allauth.account',
     'allauth.socialaccount',
-	'smart_selects',
     'django_filters',
     'storages',
      #my apps

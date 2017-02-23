@@ -1,6 +1,5 @@
 {% load staticfiles %}
 
-
 <style>
 {% block style %}
 
@@ -71,31 +70,14 @@
              </ul>
            </li>
          {% else %}
-           <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
-               <ul class="dropdown-menu">
-                 <li><a href="{% url 'account_signup' %}">Sign up</a></li>
-                 <li><a href="{% url 'account_signup' %}">Vendor</a></li>
-               </ul>
-             </li>
-             {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
-               <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>
-                 <ul id="login-dp" class="dropdown-menu" role="menu">
-                   <form class='navbar-form ' role="form" method='POST' action='{% url "account_login" %}'>{% csrf_token %}
-                     <div class='form-group'>
-                       <input type='text' class='form-control' name='username' placeholder='Username' />
-                     </div>
-                     <br />
-                     <div class='form-group'>
-                       <input type='password' class='form-control' name='password' placeholder='Password' />
-                     </div>
-                     <button type='submit' class='btn btn-primary btn-block '>Login</button>
-                   </form>
-                   <p class="text-center"><a href='{% url "account_reset_password" %}'>Forgot password ? </a></p>
-                 </ul>
-               </li>
-             {% endif %}
+           <li class="nav-item">
+             <a href="{% url 'account_signup' %}">Sign up</a>
+           </li>
+         {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+           <li class="nav-item">
+             <a href="{% url 'account_login' %}">sign in</a>
+           </li>
+         {% endif %}
          {% endif %}
        </ul>
      </div><!--/.nav-collapse -->

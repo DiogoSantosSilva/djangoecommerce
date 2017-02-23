@@ -91,7 +91,16 @@ $(".item-qty").change(function(){
                     <tr>
                       <td class="col-sm-8 col-md-6">
 	                        <div class="media">
-	                            <a class="thumbnail pull-left " href="#"> <img class="media-object" src="{{ item.item.product.get_image_url }}" style="width: 72px; height: 72px;"> </a>
+															{% if item.item.product.get_image_url  %}
+															<div class="col-md-3 col-xs-6">
+	                            	<a class="thumbnail " href="#"><img  class="img-responsive" src="{{ item.item.product.get_image_url }}" style="width: 72px; height: 72px;"> </a>
+															</div>
+															{% else %}
+															<div class="col-md-3 col-xs-6">
+																<a class="thumbnail " href="#"><img  class="img-responsive" src="http://placehold.it/350x250" style="width: 72px; height: 72px; "/></a>
+															</div>
+															{% endif %}
+
 	                            <div class="text-center">
 	                                <h4 class="media-heading"><a href="#">{{item.item.get_title}}</a></h4>
 																	{% if item.item.inventory < 1 %}
