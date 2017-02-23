@@ -15,6 +15,7 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^chaining/', include('smart_selects.urls')),
     url(r'^products/', include('products.urls')),
 
     url(r'^orders/$', OrdersList.as_view(), name='order_list'),

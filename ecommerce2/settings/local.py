@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'smart_selects',
     #third party apps
     'crispy_forms',
      'allauth',
