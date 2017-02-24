@@ -28,6 +28,7 @@ class ProductFilterForm(forms.Form):
 
 
 
+
 class VariationInventoryForm(forms.ModelForm):
 	class Meta:
 		model = Variation

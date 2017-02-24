@@ -36,7 +36,7 @@ class ItemCountView(View):
             else:
                 cart = Cart.objects.get(id=cart_id)
                 count = cart.items.count()
-                request.session["cart_item_count"] = count
+            request.session["cart_item_count"] = count
             return JsonResponse({"count":count})
         else:
             raise Http404
@@ -181,6 +181,9 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         else:
             return self.form_invalid(form)
 
+    def get_success_url(self):
+        return reverse("checkout")
+
 
     def get(self, request, *args, **kwargs):
         get_data = super(CheckOutView, self).get(request, *args, **kwargs)
@@ -188,7 +191,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         if cart == None:
             return redirect("cart")
         new_order = self.get_order()
-        user_checkout_id = self.request.session.get("user_checkout_id")
+        user_checkout_id = request.session.get("user_checkout_id")
         if user_checkout_id != None:
             user_checkout = UserCheckout.objects.get(id=user_checkout_id)
             if new_order.billing_address == None or new_order.shipping_address == None:
