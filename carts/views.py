@@ -170,19 +170,19 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         context["form"] = self.get_form()
         return context
 
-    # def post(self, request, *args, **kwargs):
-    #     self.object = self.get_object()
-    #     form = self.get_form()
-    #     if form.is_valid():
-    #         email = form.cleaned_data.get("email")
-    #         user_checkout, created = UserCheckout.objects.get_or_create(email=email)
-    #         request.session["user_checkout_id"] = user_checkout.id
-    #         return self.form_valid(form)
-    #     else:
-    #         return self.form_invalid(form)
-    #
-    # def get_success_url(self):
-    #     return reverse("checkout")
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            email = form.cleaned_data.get("email")
+            user_checkout, created = UserCheckout.objects.get_or_create(email=email)
+            request.session["user_checkout_id"] = user_checkout.id
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def get_success_url(self):
+        return reverse("checkout")
 
 
     def get(self, request, *args, **kwargs):

@@ -120,21 +120,21 @@ $(".item-qty").change(function(){
 										{% endfor %}
                     <tr>
                         <td colspan="4"><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong><span id='subtotal'>${{ object.subtotal }}</span></span></strong></h5></td>
+                        <td ><h5><strong><span id='subtotal'>${{ object.subtotal }}</span></span></strong></h5></td>
                     </tr>
                     <tr>
                         <td colspan="4"><h5>Tax (Estimated):</h5></td>
-                        <td class="text-right"><h5><strong><span id='taxtotal'>${{ object.tax_total }}</span></strong></h5></td>
+                        <td ><h5><strong><span id='taxtotal'>${{ object.tax_total }}</span></strong></h5></td>
                     </tr>
                     <tr >
                         <td colspan="4"><h3>Total</h3></td>
-                        <td  class="text-right"><h3><strong><span id='carttotal'>${{ object.total }}</span></strong></h3></td>
+                        <td><h3><strong><span id='carttotal'>${{ object.total }}</span></strong></h3></td>
                     </tr>
                     <tr>
                         <td colspan="4">
-                        <a class="btn btn-default" href="{% url 'home' %}">Continue Shopping</a</td>
+                        <a class="btn btn-default" href="{% url 'home' %}">Continue Shopping</a></td>
                         <td>
-                        <a class='btn btn-success' href="{% url 'checkout' %}">Checkout</a></td>
+                        <a class="btn btn-success pull-left" href="{% url 'checkout' %}">Checkout</a></td>
                     </tr>
                 </tbody>
             </table>
