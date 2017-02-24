@@ -17,12 +17,12 @@ from orders.mixins import CartOrderMixin
 from products.models import Variation
 
 
-if settings.DEBUG:
-    braintree.Configuration.configure(braintree.Environment.Sandbox,
-        merchant_id = settings.BRAINTREE_MERCHAND_ID,
-        public_key = settings.BRAINTREE_PUBLIC,
-        private_key = settings.BRAINTREE_PRIVATE
-    )
+
+braintree.Configuration.configure(braintree.Environment.Sandbox,
+    merchant_id = settings.BRAINTREE_MERCHAND_ID,
+    public_key = settings.BRAINTREE_PUBLIC,
+    private_key = settings.BRAINTREE_PRIVATE
+)
 
 # Create your views here.
 class ItemCountView(View):
@@ -140,7 +140,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         if cart == None:
             return None
         return cart
-    
+
     def get_context_data(self, *args, **kwargs):
         context = super(CheckOutView, self).get_context_data(*args, **kwargs)
         user_can_continue = False
@@ -169,7 +169,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         context["user_can_continue"] = user_can_continue
         context["form"] = self.get_form()
         return context
-    #
+
     # def post(self, request, *args, **kwargs):
     #     self.object = self.get_object()
     #     form = self.get_form()
