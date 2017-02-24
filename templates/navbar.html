@@ -39,12 +39,12 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </button>
-       <a class="navbar-brand" href="#">Project name</a>
+       <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+       <a class="navbar-brand pull-right hidden-sm hidden-md hidden-lg" href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-lg " aria-hidden="true"></i> <span id="cart-count-badge" class="badge" >{{request.session.cart_item_count}}</span ></a>
      </div>
 
      <div id="navbar" class="navbar-collapse collapse">
        <ul class="nav navbar-nav">
-         <li ><a href="{% url 'home' %}">Home</a></li>
          <form class="navbar-form navbar-left hidden-sm hidden-xs" method="GET" role="search" action='{% url "products" %}'>
              <div class="form-group">
                <input type="text" class="form-control" placeholder="Search" name="q" value='{{ request.GET.q }}'>
@@ -55,7 +55,7 @@
        </ul>
 
        <ul class="nav navbar-nav navbar-right">
-         <li>
+         <li class="hidden-xs ">
            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-lg " aria-hidden="true"></i> <span id="cart-count-badge" class="badge" >{{request.session.cart_item_count}}</span >
            </a>
          </li>
