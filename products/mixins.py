@@ -25,5 +25,5 @@ class LoginRequiredMixin(object):
         return login_required(view)
 
     @method_decorator(login_required)
-    def dispatch(login_required):
+    def dispatch(self, request, *args, **kwargs):
         return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)

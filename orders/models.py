@@ -77,7 +77,8 @@ class UserAdress(models.Model):
 ORDER_STATUS_CHOICES = (
     ("created","Created"),
     ("paid", "Paid"),
-    ("shippend", "Shipped")
+    ("shippend", "Shipped"),
+    ('refunded', 'Refunded'),
 )
 
 
@@ -93,6 +94,9 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.cart.id)
+
+    class Meta:
+         ordering = ['-id']
 
     def get_absolute_url(self):
         return reverse("order_detail", kwargs={"pk":self.pk})

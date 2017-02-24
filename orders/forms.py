@@ -6,7 +6,7 @@ User =  get_user_model()
 
 class GuestCheckoutForm(forms.Form):
     email = forms.EmailField()
-    email2 = forms.EmailField(label="Verify Email")
+    email2 = forms.EmailField(label='Verify Email')
 
     def clean_email2(self):
         email = self.cleaned_data.get("email")
