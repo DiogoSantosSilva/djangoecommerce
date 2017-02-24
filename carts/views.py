@@ -169,37 +169,37 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         context["user_can_continue"] = user_can_continue
         context["form"] = self.get_form()
         return context
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            email = form.cleaned_data.get("email")
-            user_checkout, created = UserCheckout.objects.get_or_create(email=email)
-            request.session["user_checkout_id"] = user_checkout.id
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-    def get_success_url(self):
-        return reverse("checkout")
-
-
-    def get(self, request, *args, **kwargs):
-        get_data = super(CheckOutView, self).get(request, *args, **kwargs)
-        cart = self.get_object()
-        if cart == None:
-            return redirect("cart")
-        new_order = self.get_order()
-        user_checkout_id = request.session.get("user_checkout_id")
-        if user_checkout_id != None:
-            user_checkout = UserCheckout.objects.get(id=user_checkout_id)
-            if new_order.billing_address == None or new_order.shipping_address == None:
-                return redirect("order_address")
-            new_order.user = user_checkout
-            new_order.save()
-        return get_data
-
+    #
+    # def post(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         email = form.cleaned_data.get("email")
+    #         user_checkout, created = UserCheckout.objects.get_or_create(email=email)
+    #         request.session["user_checkout_id"] = user_checkout.id
+    #         return self.form_valid(form)
+    #     else:
+    #         return self.form_invalid(form)
+    #
+    # def get_success_url(self):
+    #     return reverse("checkout")
+    #
+    #
+    # def get(self, request, *args, **kwargs):
+    #     get_data = super(CheckOutView, self).get(request, *args, **kwargs)
+    #     cart = self.get_object()
+    #     if cart == None:
+    #         return redirect("cart")
+    #     new_order = self.get_order()
+    #     user_checkout_id = request.session.get("user_checkout_id")
+    #     if user_checkout_id != None:
+    #         user_checkout = UserCheckout.objects.get(id=user_checkout_id)
+    #         if new_order.billing_address == None or new_order.shipping_address == None:
+    #             return redirect("order_address")
+    #         new_order.user = user_checkout
+    #         new_order.save()
+    #     return get_data
+    #
 
 class CheckOutFinalView(CartOrderMixin, View):
 
