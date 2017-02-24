@@ -2,8 +2,7 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from carts.views import CartView, ItemCountView, CheckOutView
- # CheckOutFinalView
+from carts.views import CartView, ItemCountView, CheckOutView, CheckOutFinalView
 from orders.views import AddressSelectFormView, UserAdressCreateView, OrdersList, OrderDetailView
 
 
@@ -28,7 +27,7 @@ urlpatterns = [
     url(r'^checkout/$', CheckOutView.as_view(), name='checkout'),
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
     url(r'^checkout/address/add/$',UserAdressCreateView.as_view(), name='user_address_create'),
-    # url(r'^checkout/final/$', CheckOutFinalView.as_view(), name='checkout_final'),
+    url(r'^checkout/final/$', CheckOutFinalView.as_view(), name='checkout_final'),
 
 
     url(r'^seller/', include('sellers.urls', namespace='sellers')),
