@@ -140,35 +140,35 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         if cart == None:
             return None
         return cart
-    # 
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super(CheckOutView, self).get_context_data(*args, **kwargs)
-    #     user_can_continue = False
-    #     user_check_id = self.request.session.get("user_checkout_id")
-    #     if self.request.user.is_authenticated():
-    #     	user_can_continue = True
-    #     	user_checkout, created = UserCheckout.objects.get_or_create(email=self.request.user.email)
-    #     	user_checkout.user = self.request.user
-    #     	user_checkout.save()
-    #     	context["client_token"] = user_checkout.get_client_token()
-    #     	self.request.session["user_checkout_id"] = user_checkout.id
-    #     elif not self.request.user.is_authenticated() and user_check_id == None:
-    #     	context["login_form"] = AuthenticationForm()
-    #     	context["next_url"] = self.request.build_absolute_uri()
-    #     else:
-    #     	pass
-    #
-    #     if user_check_id != None:
-    #     	user_can_continue = True
-    #     	if not self.request.user.is_authenticated(): #GUEST USER
-    #     		user_checkout_2 = UserCheckout.objects.get(id=user_check_id)
-    #     		context["client_token"] = user_checkout_2.get_client_token()
-    #
-    #     #if self.get_cart() is not None:
-    #     context["order"] = self.get_order()
-    #     context["user_can_continue"] = user_can_continue
-    #     context["form"] = self.get_form()
-    #     return context
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(CheckOutView, self).get_context_data(*args, **kwargs)
+        user_can_continue = False
+        user_check_id = self.request.session.get("user_checkout_id")
+        if self.request.user.is_authenticated():
+        	user_can_continue = True
+        	user_checkout, created = UserCheckout.objects.get_or_create(email=self.request.user.email)
+        	user_checkout.user = self.request.user
+        	user_checkout.save()
+        	context["client_token"] = user_checkout.get_client_token()
+        	self.request.session["user_checkout_id"] = user_checkout.id
+        elif not self.request.user.is_authenticated() and user_check_id == None:
+        	context["login_form"] = AuthenticationForm()
+        	context["next_url"] = self.request.build_absolute_uri()
+        else:
+        	pass
+
+        if user_check_id != None:
+        	user_can_continue = True
+        	if not self.request.user.is_authenticated(): #GUEST USER
+        		user_checkout_2 = UserCheckout.objects.get(id=user_check_id)
+        		context["client_token"] = user_checkout_2.get_client_token()
+
+        #if self.get_cart() is not None:
+        context["order"] = self.get_order()
+        context["user_can_continue"] = user_can_continue
+        context["form"] = self.get_form()
+        return context
     #
     # def post(self, request, *args, **kwargs):
     #     self.object = self.get_object()
