@@ -140,10 +140,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         if cart == None:
             return None
         return cart
-    def get(self, request):
-        # <view logic>
-        return HttpResponse('hello')
-    #
+    # 
     # def get_context_data(self, *args, **kwargs):
     #     context = super(CheckOutView, self).get_context_data(*args, **kwargs)
     #     user_can_continue = False
@@ -186,22 +183,22 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
     #
     # def get_success_url(self):
     #     return reverse("checkout")
-    #
-    #
-    # def get(self, request, *args, **kwargs):
-    #     get_data = super(CheckOutView, self).get(request, *args, **kwargs)
-    #     cart = self.get_object()
-    #     if cart == None:
-    #         return redirect("cart")
-    #     new_order = self.get_order()
-    #     user_checkout_id = request.session.get("user_checkout_id")
-    #     if user_checkout_id != None:
-    #         user_checkout = UserCheckout.objects.get(id=user_checkout_id)
-    #         if new_order.billing_address == None or new_order.shipping_address == None:
-    #             return redirect("order_address")
-    #         new_order.user = user_checkout
-    #         new_order.save()
-    #     return get_data
+
+
+    def get(self, request, *args, **kwargs):
+        get_data = super(CheckOutView, self).get(request, *args, **kwargs)
+        cart = self.get_object()
+        if cart == None:
+            return redirect("cart")
+        new_order = self.get_order()
+        user_checkout_id = request.session.get("user_checkout_id")
+        if user_checkout_id != None:
+            user_checkout = UserCheckout.objects.get(id=user_checkout_id)
+            if new_order.billing_address == None or new_order.shipping_address == None:
+                return redirect("order_address")
+            new_order.user = user_checkout
+            new_order.save()
+        return get_data
 
 
 class CheckOutFinalView(CartOrderMixin, View):
