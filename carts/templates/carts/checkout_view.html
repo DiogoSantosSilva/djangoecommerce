@@ -48,41 +48,42 @@ braintree.setup(clientToken, "dropin", {
 
 <div class="container">
 
-     <div class="row grid-divider">
-  <div class="col-sm-6 ">
- <div class="col-padding">
-      <div class='card card-container'>
-    <p class="lead text-center">Continue as guest</p>
-    <form method="post" action="">
-      {% csrf_token %}
-      {{form|crispy}}
-      <input type="submit" class="btn btn-success" value="Continue as Guest"/>
-    </form>
+<div class="row grid-divider">
+<div class="col-sm-6 ">
+<div class="col-padding">
+<div class='card card-container'>
+<p class="lead text-center">Continue as guest</p>
+<form method="post" action="">
+{% csrf_token %}
+{{form|crispy}}
+<input type="submit" class="btn btn-success" value="Continue as Guest"/>
+</form>
 
-  </div>
-  </div>
-  </div>
-
-
+</div>
+</div>
+</div>
 
 
-  <div class="col-sm-6">
-      <div class='card card-container'>
-    <p class="lead text-center">Login to continue</p>
-    <form method="post" action="{% url 'account_login' %}">
-      {% csrf_token %}
 
-      {{login_form|crispy}}
 
-      <input type="hidden" name="next" value="{{ next_url }}" />
-      <input class="btn btn-success" type="submit" value="submit" />
-    </form>
-    <p>{% trans "Forgot password" %}? <a href="{% url 'account_reset_password' %}">{% trans "Reset it" %}</a>!</p>
-    <p>{% trans "Not member" %}? <a href="{% url 'account_signup' %}">{% trans "Register" %}</a>!</p>
-  </div>
-  </div>
-  </div>
-  </div>
+<div class="col-sm-6">
+<div class='card card-container'>
+  <div class="col-padding">
+<p class="lead text-center">Login to continue</p>
+<form method="post" action="{% url 'account_login' %}">
+{% csrf_token %}
+
+{{login_form|crispy}}
+
+<input type="hidden" name="next" value="{{ next_url }}" />
+<input class="btn btn-success" type="submit" value="submit" />
+</form>
+<p>{% trans "Forgot password" %}? <a href="{% url 'account_reset_password' %}">{% trans "Reset it" %}</a>!</p>
+<p>{% trans "Not member" %}? <a href="{% url 'account_signup' %}">{% trans "Register" %}</a>!</p>
+</div>
+</div>
+</div>
+</div>
 
 {% else %}
 

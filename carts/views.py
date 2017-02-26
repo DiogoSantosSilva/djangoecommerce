@@ -1,5 +1,6 @@
 import braintree
 
+from allauth.account.forms import LoginForm
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.contrib import messages
@@ -153,7 +154,7 @@ class CheckOutView(CartOrderMixin, FormMixin, DetailView):
         	context["client_token"] = user_checkout.get_client_token()
         	self.request.session["user_checkout_id"] = user_checkout.id
         elif not self.request.user.is_authenticated() and user_check_id == None:
-        	context["login_form"] = AuthenticationForm()
+        	context["login_form"] = LoginForm()
         	context["next_url"] = self.request.build_absolute_uri()
         else:
         	pass
