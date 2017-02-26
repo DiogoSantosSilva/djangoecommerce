@@ -10,11 +10,7 @@
     <meta name="author" content="">
     <title>{% block head_title %}E-commerce{% endblock %}</title>
     {% include 'head_css.html' %}
-      <style>
-      {% block style %}
-
-      {% endblock  %}
-      </style>
+    <style>{% block style %}{% endblock  %}</style>
   </head>
 
   <body>
@@ -46,11 +42,10 @@
       {% include "javascript.html" %}
 
       <script>
-          $(document).ready(function(){
-            {% block jquery %}
-            {% endblock jquery %}
-          });
-      </script>
-
+    $(document).ready(function(){
+        {% block jquery %}
+        {% endblock %}
+    });
+    </script>
   </body>
 </html>

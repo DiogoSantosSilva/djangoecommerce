@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<div class="container">
+
 <h1 class="text-center">Delivery address</h1>
 
 <form  method="POST" action=''>
@@ -12,5 +14,5 @@
   <input class="btn btn-success" type="submit" value="select" />
   <a class="btn btn-default" href='{% url "user_address_create" %}'>Add New</a>
 </form>
-
+</div>
 {% endblock %}

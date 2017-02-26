@@ -2,6 +2,35 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
+<style >
+  {% block style %}
+
+  @media ( min-width: 768px ) {
+    .grid-divider {
+        position: relative;
+        padding: 0;
+    }
+
+    .grid-divider>[class*='col-'] {
+        position: static;
+    }
+    .grid-divider>[class*='col-']:nth-child(n+2):before {
+        content: "";
+        border-left: 1px solid #DDD;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    .col-padding {
+        padding: 0 15px;
+    }
+}
+
+  {% endblock style %}
+
+
+</style>
+
 <script>
 {% block jquery %}
 var clientToken = "{{ client_token }}";
@@ -16,25 +45,43 @@ braintree.setup(clientToken, "dropin", {
 {% block content %}
 {% if not user_can_continue %}
 
-  <div class="col-sm-6">
+
+<div class="container">
+
+     <div class="row grid-divider">
+  <div class="col-sm-6 ">
+ <div class="col-padding">
+      <div class='card card-container'>
     <p class="lead text-center">Continue as guest</p>
     <form method="post" action="">
       {% csrf_token %}
       {{form|crispy}}
       <input type="submit" class="btn btn-success" value="Continue as Guest"/>
     </form>
+
+  </div>
+  </div>
   </div>
 
+
+
+
   <div class="col-sm-6">
+      <div class='card card-container'>
     <p class="lead text-center">Login to continue</p>
     <form method="post" action="{% url 'account_login' %}">
       {% csrf_token %}
+
       {{login_form|crispy}}
+
       <input type="hidden" name="next" value="{{ next_url }}" />
       <input class="btn btn-success" type="submit" value="submit" />
     </form>
     <p>{% trans "Forgot password" %}? <a href="{% url 'account_reset_password' %}">{% trans "Reset it" %}</a>!</p>
     <p>{% trans "Not member" %}? <a href="{% url 'account_signup' %}">{% trans "Register" %}</a>!</p>
+  </div>
+  </div>
+  </div>
   </div>
 
 {% else %}
