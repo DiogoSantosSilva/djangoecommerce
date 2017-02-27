@@ -62,7 +62,7 @@ ADDRESS_TYPE = (
 
 class UserAdress(models.Model):
     user = models.ForeignKey(UserCheckout)
-    type = models.CharField(max_length=120, choices=ADDRESS_TYPE)
+    type = models.CharField(max_length=120, choices=ADDRESS_TYPE, default="Billing")
     street = models.CharField(max_length=120)
     city = models.CharField(max_length=120)
     state = models.CharField(max_length=120)

@@ -21,6 +21,10 @@
     margin: 0px;
 }
 
+.alert ul {
+	list-style-type: none;
+	padding: 0;
+}
 
 .card-container.card {
     max-width: 350px;

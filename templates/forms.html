@@ -1,29 +1,49 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 
 <style media="screen">
   {% block style %}
+  .box{
+
+     padding: 10px;
+     background-color: #ccc;
+     box-shadow: 2px 2px 2px  #888888;
+     color:#fff;
+
+  }
+
+  .button{
+    width:200px;
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+}
 
   {% endblock style %}
 </style>
 
-<div class="container">
 
-  {% if title %}
+
+{% if title %}
   <h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
-  {% endif %}
+{% endif %}
 
-<div class="row">
-<div class="col-sm-8 col-sm-offset-2" style=" padding:30px;">
-<form method='POST' action=''>{% csrf_token %}
-{{ form|crispy }}
 
-<input class='btn btn-success' type='submit' value='Submit' />
-</form>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 box">
+      <h1 class="text-center">Address</h1>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2" style=" padding:30px; border:1px  #ccc solid;">
+      <form method='POST' action=''>{% csrf_token %}
+      {{ form|crispy }}
+
+      <input class='btn btn-success button' type='submit' value='Submit'/>
+      </form>
+    </div>
+  </div>
 </div>
-</div>
-
 {% endblock %}

@@ -3,16 +3,46 @@
 
 
 {% block content %}
+<style media="screen">
+  {% block style %}
+  .box{
 
-<div class="container">
+     padding: 10px;
+     background-color: #ccc;
+     box-shadow: 2px 2px 2px  #888888;
+     color:#fff;
+  }
+  .button{
+    width:200px;
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
 
-<h1 class="text-center">Delivery address</h1>
+}
 
-<form  method="POST" action=''>
-  {% csrf_token %}
-  {{form|crispy}}
-  <input class="btn btn-success" type="submit" value="select" />
-  <a class="btn btn-default" href='{% url "user_address_create" %}'>Add New</a>
-</form>
+.corpo{
+  padding:30px;
+  border:1px  #ccc solid;
+}
+
+  {% endblock style %}
+</style>
+
+<div class="container" style="height: 100%;">
+  <div class="row" style="height: 100%" >
+    <div class="col-sm-8 col-sm-offset-2 box">
+      <h1 class="text-center">Delivery address</h1>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2 corpo"style="height: 100%;">
+    <form  method="POST" action=''>
+      {% csrf_token %}
+      {{form|crispy}}
+      <br>
+      <input class="btn btn-success button" type="submit" value="select" />
+      <br>
+      <a class="btn  btn-default button" href='{% url "user_address_create" %}'>Add New</a>
+    </form>
+  </div>
+</div>
 </div>
 {% endblock %}

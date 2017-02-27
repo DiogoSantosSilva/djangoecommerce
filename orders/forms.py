@@ -23,12 +23,10 @@ class GuestCheckoutForm(forms.Form):
 class AddressForm(forms.Form):
     billing_address = forms.ModelChoiceField(
         queryset=UserAdress.objects.filter(type="billing"),
-        widget=forms.RadioSelect,
         empty_label = None
         )
     shipping_address = forms.ModelChoiceField(
         queryset=UserAdress.objects.filter(type="shipping"),
-        widget=forms.RadioSelect,
         empty_label = None,
         )
 
