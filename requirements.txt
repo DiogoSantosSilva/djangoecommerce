@@ -18,6 +18,7 @@ Pillow==3.4.2
 psycopg2==2.6.2
 pyparsing==2.1.10
 python-decouple==3.0
+python-memcached==1.58
 python3-openid==3.0.10
 requests==2.7.0
 requests-oauthlib==0.8.0
