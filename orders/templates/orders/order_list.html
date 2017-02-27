@@ -8,7 +8,9 @@
 
 {% else %}
 
-<table class="table table-bordered">
+<div class="col-sm-8 col-md-offset-2">
+<h1 class="text-center">My orders</h1>
+<table class="table">
   <thead>
     <tr>
       <th>ORDER</th>
@@ -35,5 +37,6 @@
           {% endfor %}
       </ul>
     </nav>
+</div>
 </div>
 {% endblock accounts_content%}

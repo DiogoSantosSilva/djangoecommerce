@@ -74,7 +74,7 @@
            </li>
          {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
            <li class="nav-item">
-             <a href="{% url 'account_login' %}">sign in</a>
+             <a href="{% url 'account_login' %}">Sign in</a>
            </li>
          {% endif %}
          {% endif %}
