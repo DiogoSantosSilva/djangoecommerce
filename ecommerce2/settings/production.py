@@ -26,14 +26,6 @@ EMAIL_HOST_PASSWORD = 'Di728560@@'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-'''
-If using gmail, you will need to
-unlock Captcha to enable Django
-to  send for you:
-https://accounts.google.com/displayunlockcaptcha
-'''
-
-
 
 
 INSTALLED_APPS = (
@@ -130,6 +122,13 @@ STATICFILES_DIRS = (
     #os.path.join(BASE_DIR, "static_in_env"),
     #'/var/www/static/',
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/tmp/memcached.sock',
+    }
+}
 
 #Crispy FORM TAGs SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
