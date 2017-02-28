@@ -53,13 +53,13 @@ class AccountAddress(LoginRequiredMixin, ListView):
         user_check_id = self.request.user.id
         return super(AccountAddress, self).get_queryset().filter(user__user=user_check_id)
 
-class AccountUpdate(UpdateView):
+class AccountUpdate(LoginRequiredMixin, UpdateView):
     model = UserAdress
     template_name = 'dashboard/address_edit.html'
     fields = ['type', 'street', 'city', 'state', 'zipcode']
 
     success_url = '/accounts_users/address-list/'
 
-class AccountsAddressDelete(DeleteView):
+class AccountsAddressDelete(LoginRequiredMixin, DeleteView):
     model = UserAdress
     success_url = '/accounts_users/address-list/'
