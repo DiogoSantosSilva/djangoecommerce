@@ -1,0 +1,20 @@
+{% extends "dashboard/index.html" %}
+
+{% load crispy_forms_tags%}
+
+{% block accounts_content%}
+
+{% if object.type == "shipping" %}
+  <h1 class="text-center">Shipping address</h1>
+{% else %}
+  <h1  class="text-center">Billing address</h1>
+{% endif %}
+
+<div class="col-sm-8 col-sm-offset-2">
+  <form action="" method="post" >{% csrf_token %}
+      {{ form|crispy }}
+      <input class="btn btn-success" type="submit" value="Update" />
+  </form>
+</div>
+
+{% endblock accounts_content%}

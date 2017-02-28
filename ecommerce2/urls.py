@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^checkout/final/$', CheckOutFinalView.as_view(), name='checkout_final'),
 
 
-    url(r'^seller/', include('sellers.urls', namespace='sellers')),
+    url(r'^accounts_users/', include('accounts_users.urls', namespace='accounts_users')),
 ]
 
 if settings.DEBUG:

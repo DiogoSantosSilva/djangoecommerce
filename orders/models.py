@@ -12,12 +12,12 @@ from products.models import Variation
 # Create your models here.
 
 
-if settings.DEBUG:
-    braintree.Configuration.configure(braintree.Environment.Sandbox,
-        merchant_id = settings.BRAINTREE_MERCHAND_ID,
-        public_key = settings.BRAINTREE_PUBLIC,
-        private_key = settings.BRAINTREE_PRIVATE
-    )
+
+braintree.Configuration.configure(braintree.Environment.Sandbox,
+    merchant_id = settings.BRAINTREE_MERCHAND_ID,
+    public_key = settings.BRAINTREE_PUBLIC,
+    private_key = settings.BRAINTREE_PRIVATE
+)
 
 class UserCheckout(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True)
@@ -73,6 +73,7 @@ class UserAdress(models.Model):
 
     def get_addresses(self):
         return "%s, %s, %s, %s" %(self.street, self.city, self.state, self.zipcode)
+
 
 ORDER_STATUS_CHOICES = (
     ("created","Created"),
