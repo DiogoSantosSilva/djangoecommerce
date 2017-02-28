@@ -8,7 +8,7 @@ from django.views.generic.detail import DetailView
 from orders.mixins import  LoginRequiredMixin
 from .forms import ProductInventoryForm
 from products.models import Product
-from orders.models import UserAdress
+from orders.models import UserAdress, UserCheckout
 from orders.forms import UserAddressForm
 # Create your views here.
 
@@ -20,16 +20,7 @@ class SellersDashboard(View):
 class UserAddCreateView(CreateView):
     form_class = UserAddressForm
     template_name = 'dashboard/addres_add.html'
-
-    def get_checkout_user(self):
-        user_checkout_id = self.request.session.get("user_checkout_id")
-        user_checkout = UserCheckout.objects.get(id=user_checkout_id)
-        return user_checkout
-
-    def form_valid(self, form, *args, **kwargs):
-        form.instance.user = self.get_checkout_user()
-        return super(UserAdressCreateView, self).form_valid(form, *args, **kwargs)
-
+    success_url = "/accounts_users/address-list/"
 
 class SellerProductsView(ListView):
     model = Product
