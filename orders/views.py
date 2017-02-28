@@ -29,14 +29,21 @@ class OrderDetailView( DetailView):
 
 
 class OrdersList(LoginRequiredMixin, ListView):
-    model = Order
+    queryset = Order.objects.all()
     paginate_by = 12
 
     def get_queryset(self):
-        user_check_id = self.request.user.id
-        user_checkout = UserCheckout.objects.get(id=user_check_id)
-        # return super(OrderList, self).get_queryset().filter(user=user_checkout)
-        return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
+        try:
+            user_check_id = self.request.user.id
+            user_checkout = UserCheckout.objects.get(id=user_check_id)
+            #return super(OrderList, self).get_queryset().filter(user=user_checkout)
+            return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
+        except user_checkout_id.DoesNotExist:
+            user_checkout_id = None
+
+
+
+
 
 # Create your views here.
 class UserAdressCreateView(CreateView):
