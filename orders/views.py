@@ -29,7 +29,7 @@ class OrderDetailView( DetailView):
 
 
 class OrdersList(LoginRequiredMixin, ListView):
-    queryset = Order.objects.all()
+    model = Order
     paginate_by = 12
 
     def get_queryset(self):
