@@ -36,7 +36,6 @@ class AccountAddress(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         user_check_id = self.request.user.id
-        user_address = UserAdress.objects.get(id=user_check_id)
         return super(AccountAddress, self).get_queryset().filter(user__user=user_check_id)
 
 class AccountUpdate(UpdateView):
