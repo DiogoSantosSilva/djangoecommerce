@@ -30,8 +30,9 @@
 <h1 class="text-center">Address</h1>
 </div>
 
-<div class="col-sm-4">
+
   {% for object in object_list  %}
+  <div class="col-sm-4 {{ col_class_set }}" >
   <div class="list-group" id="address-box">
     <div class="list-group-item active">
       <h2 class="list-group-item-heading">{{object.type}}</h2>
@@ -47,9 +48,10 @@
        </ul>
     </div>
   </div>
+  {% if forloop.counter|divisibleby:3 %}
+    </div><div class="row">
+  {% endif %}
+  </div>
   {% endfor %}
-<div>
-
-<a href='{% url "user_address_create" %}' class="btn btn-success">New address</a>
 
 {% endblock accounts_content%}
