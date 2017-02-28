@@ -37,9 +37,9 @@ class OrdersList(LoginRequiredMixin, ListView):
             user_check_id = self.request.user.id
             user_checkout = UserCheckout.objects.get(id=user_check_id)
             #return super(OrderList, self).get_queryset().filter(user=user_checkout)
-            return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
         except user_checkout_id.DoesNotExist:
             user_checkout_id = None
+        return super(OrdersList, self).get_queryset().filter(user__user=user_check_id)
 
 
 
