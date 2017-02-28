@@ -5,9 +5,13 @@
 {% block accounts_content%}
 
 {% if object.type == "shipping" %}
+<div class="page-header">
   <h1 class="text-center">Shipping address</h1>
+</div>
 {% else %}
+<div class="page-header">
   <h1  class="text-center">Billing address</h1>
+</div>
 {% endif %}
 
 <div class="col-sm-8 col-sm-offset-2">

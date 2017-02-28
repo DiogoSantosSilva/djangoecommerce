@@ -10,30 +10,37 @@
         text-decoration: none;
         list-style-type: none;
       }
-      #address-box{
-        width: 30%;
+
+      #address-box  a{
+        text-decoration: none;
+      }
+
+      #address-box  a i{
+        text-decoration: none;
+      }
+
+      #address-box  a i:hover{
+        color:#a9a9a9;
+        display: block;
       }
   {% endblock style %}
 </style>
 
-<!--<form action="" method="post">{% csrf_token %}
-    {{ form|crispy }}
-    <input class="btn btn-success" type="submit" value="Update" />
-</form>-->
 <div class="page-header">
 <h1 class="text-center">Address</h1>
 </div>
 
+<div class="col-sm-4">
   {% for object in object_list  %}
   <div class="list-group" id="address-box">
     <div class="list-group-item active">
-      <h4 class="list-group-item-heading">{{object.type}}</h4>
+      <h2 class="list-group-item-heading">{{object.type}}</h2>
       <a class="pull-right" style="color:white; position:relative; top:-20px; " href="{% url 'accounts_users:address_delete' pk=object.pk %}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
       <a class="pull-right" style="color:white; position:relative; top:-20px; left:-10px;" href="{% url 'accounts_users:address_edit' pk=object.pk %}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
     </div>
     <div class="list-group-item">
        <ul>
-         <li>{{object.street}}</li>
+         <li><b>{{object.street}}</b></li>
          <li>{{object.city}}</li>
          <li>{{object.state}}</li>
          <li>{{object.zipcode}}</li>
@@ -41,6 +48,8 @@
     </div>
   </div>
   {% endfor %}
+<div>
 
+<a href='{% url "user_address_create" %}' class="btn btn-success">New address</a>
 
 {% endblock accounts_content%}
