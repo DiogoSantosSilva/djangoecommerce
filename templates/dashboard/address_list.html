@@ -33,10 +33,12 @@
   {% endblock style %}
 </style>
 
+{% if object_list.count <= 0 %}
+  <h1 class="text-center">No address added </h1>
+{% else %}
 <div class="page-header">
 <h1 class="text-center">Address</h1>
 </div>
-
 
   {% for object in object_list  %}
   <div class="col-sm-4 {{ col_class_set }}" >
@@ -64,7 +66,7 @@
       <div class="modal-content">
         <form action="{% url 'accounts_users:address_delete' pk=object.pk %}" method="post">{% csrf_token %}
         <div class="modal-header">
-          <h2>Delete</h2>
+          <h2>Delete {{object.type}} Address</h2>
         </div>
         <div class="modal-body">
           <p>Are you sure you want to delete "{{ object }}"?</p>
@@ -80,5 +82,9 @@
   </div>
 
   {% endfor %}
+{% endif %}
+
+
+<a class="btn btn-success" href="{% url 'accounts_user:address_add' %}">Add address<a/>
 
 {% endblock accounts_content%}

@@ -60,6 +60,7 @@ class UserAdressCreateView(CreateView):
         form.instance.user = self.get_checkout_user()
         return super(UserAdressCreateView, self).form_valid(form, *args, **kwargs)
 
+
 class AddressSelectFormView(CartOrderMixin, FormView):
     form_class = AddressForm
     template_name = 'orders/address_select.html'
